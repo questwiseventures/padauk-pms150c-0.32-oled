@@ -1,0 +1,1297 @@
+Final-library dependency experiment - 2026-10-22
+Default percentage-only static: USER VALIDATED, IDE 1.04C1, 2026-10-22.
+Both bars static: USER VALIDATED, IDE 1.04C1, 2026-10-22.
+Level-only static: USER VALIDATED, IDE 1.04C1, 2026-10-22.
+All public requests off, static: USER VALIDATED, IDE 1.04C1, 2026-10-22.
+Other text/shape/bitmap/combined settings: not MCU-validated here.
+Five host dependency/source test groups pass, including 2048 feature selections
+and 23 preserved routine bodies. These are not Mini-C compilation tests.
+No compiler, simulator, programmer or hardware tests performed by Codex.
+Other configurations have no new experiment measurements.
+Other configurations and peak runtime stack remain unmeasured.
+
+Default percentage-only static - user report, 2026-10-22
+Configuration: OLED_USE_PERCENTBAR=1; other public feature requests=0;
+OLED_KEEP_CURSOR=0; demo drawing enabled; timed cycling disabled;
+bar length 3, percentage 37.
+User hardware confirmation: the 37% bar displays correctly in all four
+orientations, with the top blank. Build has 0 errors and 0 warnings.
+One supplied report, not four separately reported orientation checksums.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x141D61
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x24A , Remain Free-Code : 0x1A6 , Remain Free-RAM : 8
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1D4 , Remain Free-Code : 0x21C , Remain Free-RAM : 8
+
+0 error(s), 0 warning(s)
+
+Comparison with validated parent percentage-only static build:
+Checksum matches 0x141D61; free PMS150C ROM 422 words, free ICE ROM 540 words,
+free RAM 8 bytes and reserved stack 12 bytes all match. Measured saving for
+this configuration: 0 ROM words and 0 RAM bytes. No binary identity or peak
+stack measurement is claimed. Other feature selections remain pending.
+
+Both bar APIs enabled, static - user report, 2026-10-22
+Configuration: OLED_USE_LEVELBAR=1; OLED_USE_PERCENTBAR=1;
+other public feature requests and OLED_KEEP_CURSOR=0; demo drawing enabled;
+timed cycling disabled; level 2; percentage 37; lower bar length 3.
+User confirms a warning-free build and both bars display correctly in all
+four orientations. Expected demo: half-full one-cell reference at (0,0)
+and a three-cell 37% bar at (0,2), both static.
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x0F0BF2
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2B2 , Remain Free-Code : 0x13E , Remain Free-RAM : 7
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x23C , Remain Free-Code : 0x1B4 , Remain Free-RAM : 7
+
+0 error(s), 0 warning(s)
+
+Free ROM: PMS150C 318 words, ICE 436 words. Free RAM: 7 bytes.
+Reserved stack: 12 bytes, not measured peak usage.
+Matches parent both-enabled static checksum and memory figures: no measured
+ROM/RAM saving. Versus this experiment's percentage-only static build,
+the added level API and reference demo cost 104 ROM words and 1 RAM byte,
+with unchanged reserved stack. This does not isolate the API from demo cost.
+No new compilation or hardware testing performed by Codex.
+
+All features disabled, static - user report, 2026-10-22
+Configuration: all public feature requests and OLED_KEEP_CURSOR=0;
+demo drawing enabled, timed cycling disabled.
+User confirms 0 errors / 0 warnings and a blank screen in all four
+orientations, with no old pixels remaining. This confirms clearing and idle
+behavior per rotation setting, not visually rotated drawing geometry.
+One supplied build report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x38 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x37 are free
+Check Sum is 0x6C1040
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x149 , Remain Free-Code : 0x2A7 , Remain Free-RAM : 40
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0xD3 , Remain Free-Code : 0x31D , Remain Free-RAM : 40
+
+0 error(s), 0 warning(s)
+
+Free ROM: PMS150C 679 words, ICE 797 words. Free RAM: 40 bytes.
+Reserved stack: 8 bytes (0x38..0x3F), not measured peak usage.
+Parent disabled build: checksum 0x7F0D1B, free ROM PMS150C 533 / ICE 651,
+free RAM 22, reserved stack 10 bytes. New disabled build saves 146 ROM words
+on both targets, provides 18 more free RAM bytes and reserves 2 fewer stack
+bytes. These are whole-build differences, including exclusion of the parent's
+redundant blank-tile transfer, not isolated per-guard savings.
+Compared with this experiment's percentage-only static build: 257 more free
+ROM words and 32 more free RAM bytes. Compared with both-bars static: 361
+more free ROM words and 33 more free RAM bytes. Both bar builds reserve 12
+stack bytes, versus 8 here. Matching targets' ROM deltas do not imply binary
+identity. No compilation or hardware testing was performed by Codex.
+
+Level-only static - user report, 2026-10-22
+Configuration: OLED_USE_LEVELBAR=1, OLED_USE_PERCENTBAR=0;
+other public feature requests and OLED_KEEP_CURSOR=0; demo drawing enabled;
+timed cycling disabled; level 2; lower bar length 3.
+User confirms a warning-free build and both bars stay half-full in all four
+orientations on hardware. Demo: one-cell bar at (0,0), three-cell bar at (0,2).
+One supplied build report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x6A0739
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x249 , Remain Free-Code : 0x1A7 , Remain Free-RAM : 8
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1D3 , Remain Free-Code : 0x21D , Remain Free-RAM : 8
+
+0 error(s), 0 warning(s)
+
+Free ROM: PMS150C 423 words, ICE 541 words. Free RAM: 8 bytes.
+Reserved stack: 12 bytes, not measured peak stack usage.
+Matches the validated parent level-only static checksum and memory figures;
+no measured ROM/RAM saving versus that parent configuration.
+Compared with this experiment's both-enabled static configuration, level-only
+static frees 105 ROM words on each target and 1 RAM byte, with unchanged
+stack reservation. This includes demo differences, not an isolated API cost.
+All four static bar feature combinations are now user-validated. Other
+feature/timed configurations remain pending in this experiment.
+No compilation or hardware testing was performed by Codex.
+
+Integration revision - 2026-10-22
+Added optional clearCell/fillCell/invertTile/drawFrame with unchanged donor
+bodies. All new switches default off; current level-only settings retained.
+All prior reports above predate this integration and remain historical.
+New IDE compilation, warnings, checksum, ROM/RAM/stack and hardware checks:
+PENDING at integration time; the subsequent level-only regression is
+recorded below. Enabled new APIs and other configurations remain pending.
+Six host source/dependency test groups pass: original 2048 combinations with
+new flags off, plus 80 integration combinations and donor/preservation checks.
+No Mini-C compilation, simulator or hardware testing performed by Codex.
+
+Post-integration level-only static regression - user report, 2026-10-22
+Configuration: LEVELBAR=1, PERCENTBAR=0; CLEARCELL=FILLCELL=INVERTTILE=
+DRAWFRAME=0; all other public requests and KEEP_CURSOR=0. Static level 2,
+lower bar length 3, demo drawing enabled, timed cycling disabled.
+User confirms warning-free compilation and both bars staying half-full in
+all four orientations with the new switches disabled.
+One supplied build report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x6A0739
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x249 , Remain Free-Code : 0x1A7 , Remain Free-RAM : 8
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1D3 , Remain Free-Code : 0x21D , Remain Free-RAM : 8
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C: 423 words; ICE: 541 words. Free RAM: 8 bytes.
+Reserved stack: 12 bytes (0x34..0x3F), not measured peak use.
+Matches pre-integration level-only static checksum and all memory figures:
+no reported ROM/RAM overhead, unchanged reserved stack with new switches off.
+Matching checksum is not a binary comparison. Enabled new features and other
+post-integration configurations remain pending. No compilation or hardware
+testing was performed by Codex.
+
+ClearCell-only, immediate-clear demo BEFORE selective-demo revision
+User report supplied 2026-10-22. This is compilation evidence only; no
+hardware confirmation supplied. All public requests except CLEARCELL=0,
+CLEARCELL=1; KEEP_CURSOR=0; static demo. No marker or observation pause yet.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0xF20968
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x1F2 , Remain Free-Code : 0x1FE , Remain Free-RAM : 18
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x17C , Remain Free-Code : 0x274 , Remain Free-RAM : 18
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 510 / ICE 628 words; RAM 18 bytes; reserved stack 12 bytes.
+Peak stack use unmeasured. No Codex compilation or hardware testing.
+
+Selective clearCell demo revision - 2026-10-22
+Adds solid marker (2,0) beside target (3,0), one application observation
+.delay DEMO_HOLD_CYCLES before clearCell, then clears only target.
+No library, initialization or transfer timing changes; no new RAM variable.
+Revised demo was pending at this revision; the subsequent user validation
+and full report follow below.
+Previous checksum/memory figures above are not results for the revised demo.
+
+Selective clearCell-only demo - user validation, 2026-10-22
+IDE 1.04C1; CLEARCELL=1, all other public requests and KEEP_CURSOR=0;
+demo drawing enabled; timed cycling disabled; observation hold 2000000.
+User confirms warning-free compilation and only the selected cell (3,0)
+clears after the pause while adjacent marker (2,0) stays visible in all four
+orientations. One supplied report; separate orientation checksums not given.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x2514D5
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x204 , Remain Free-Code : 0x1EC , Remain Free-RAM : 16
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x18E , Remain Free-Code : 0x262 , Remain Free-RAM : 16
+
+0 error(s), 0 warning(s)
+
+Free ROM: PMS150C 492 / ICE 610 words; free RAM 16 bytes; reserved stack
+12 bytes. Relative to immediate-clear demo 0xF20968 (510 / 628 free ROM,
+18 free RAM), this complete revised demo costs 18 ROM words on each target
+and 2 RAM bytes, with unchanged stack reservation. No explicit new runtime
+variable was introduced; the reason for the reported RAM increase has not
+been investigated. This is not isolated clearCell API cost. Peak stack use
+is unmeasured. Other enabled new APIs remain pending in the integrated
+project. No compilation or hardware testing performed by Codex.
+
+FillCell-only integrated build - user report, 2026-10-22
+IDE 1.04C1; FILLCELL=1, all other public requests and KEEP_CURSOR=0;
+demo drawing enabled, timed cycling disabled.
+User confirms warning-free compilation and the solid cell at logical (3,1)
+displays correctly in all four orientations, with everything else blank.
+One supplied build report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x0C0BF9
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x1E6 , Remain Free-Code : 0x20A , Remain Free-RAM : 18
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x170 , Remain Free-Code : 0x280 , Remain Free-RAM : 18
+
+0 error(s), 0 warning(s)
+
+Free ROM: PMS150C 522 / ICE 640 words; free RAM 18 bytes; reserved stack
+12 bytes. Peak stack use is unmeasured; the address range below the stack
+is not the free-RAM count. Compared with revised clearCell-only 0x2514D5,
+this complete configuration has 30 more free ROM words on each target and
+2 more free RAM bytes, with unchanged stack reservation. Demo differences
+are included; these are not isolated per-API costs. Enabled invertTile and
+drawFrame integration validation remains pending. No compilation or hardware
+testing was performed by Codex.
+
+InvertTile with bitmap output - user report, 2026-10-22
+IDE 1.04C1; INVERTTILE=1, DRAWBITMAP=1; all other public requests and
+KEEP_CURSOR=0; demo drawing enabled, timed cycling disabled.
+User confirms warning-free compilation and correct inverted arrow/corner-dot
+tile at (3,2) plus checker at (3,0) in all four orientations on hardware.
+No report for RAM-only inversion with bitmap disabled is implied.
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x36 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x35 are free
+Check Sum is 0x111FA4
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x21B , Remain Free-Code : 0x1D5 , Remain Free-RAM : 20
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1A5 , Remain Free-Code : 0x24B , Remain Free-RAM : 20
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 469 / ICE 587 words; free RAM 20 bytes; reserved stack
+10 bytes (0x36..0x3F), not measured peak usage. Address range below the
+stack is not the free-RAM count. Compared with fillCell-only 0x0C0BF9,
+this complete demo uses 53 more ROM words on each target, has 2 more free
+RAM bytes and reserves 2 fewer stack bytes. These are configuration/demo
+comparisons, not isolated function costs. DrawFrame integration validation
+and other unreported combinations remain pending. No compilation or
+hardware testing was performed by Codex.
+
+DrawFrame-only integrated build - user report, 2026-10-22
+IDE 1.04C1; DRAWFRAME=1; all other public requests and KEEP_CURSOR=0;
+demo drawing enabled, timed cycling disabled. Required bitmap/cursor helpers
+are automatically included. Static 3x3-cell outline from logical (0,0).
+User confirms a warning-free build and correct frame in all four orientations,
+with no internal dividers or stray pixels. One supplied report; separate
+orientation checksums not supplied. This blank-background demo does not
+independently test preservation of existing interior/outside drawings.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x220A16
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x245 , Remain Free-Code : 0x1AB , Remain Free-RAM : 8
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1CF , Remain Free-Code : 0x221 , Remain Free-RAM : 8
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 427 / ICE 545 words; free RAM 8 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Compared with fillCell-only
+0x0C0BF9, this complete demo uses 95 more ROM words on each target and 10
+more RAM bytes; reserved stack unchanged. These are whole-configuration
+comparisons, not isolated function costs. All four new routines now have
+individual visible-demo validation; invertTile was tested with bitmap output.
+Combined configurations and integrated frame preservation/edge-case tests
+remain unreported. No compilation or hardware testing performed by Codex.
+
+Combined fillCell + clearCell demo revision - 2026-10-22
+Current requests: FILLCELL=1, CLEARCELL=1; other public requests and
+KEEP_CURSOR=0. Static application: fill target (3,0), fill marker (2,0),
+pause DEMO_HOLD_CYCLES=2000000, then clear target only. No third fill cell.
+Standalone demo branches preserved. Library bodies/init/timing unchanged.
+IDE/memory/hardware were pending at revision time; subsequent user
+validation and full report follow below.
+Prior individual reports above do not establish this combined build's results.
+No compilation or hardware testing performed by Codex.
+
+Combined fillCell + clearCell - user validation, 2026-10-22
+IDE 1.04C1; FILLCELL=1, CLEARCELL=1; other public requests/KEEP_CURSOR=0;
+drawing enabled, timed cycling disabled, observation hold 2000000.
+User confirms warning-free compilation and only the selected cell (3,0)
+clears after the pause while adjacent marker (2,0) stays visible in all four
+orientations. Both cells are initially drawn with fillCell().
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x0C1FE9
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x206 , Remain Free-Code : 0x1EA , Remain Free-RAM : 16
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x190 , Remain Free-Code : 0x260 , Remain Free-RAM : 16
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 490 / ICE 608 words; free RAM 16 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Relative to revised clear-only
+0x2514D5 (492 / 610 free ROM, 16 RAM), combined demo costs 2 ROM words on
+each target with unchanged RAM/stack reservation. Relative to fill-only
+0x0C0BF9 (522 / 640 free ROM, 18 RAM), it costs 32 ROM words and 2 RAM bytes,
+with unchanged stack reservation. Whole-demo comparisons, not isolated API
+costs. Other combinations remain unreported. No compilation or hardware
+testing was performed by Codex; this update changes documentation only.
+
+FillCell + drawFrame marker demo revision - 2026-10-22
+Current public requests FILLCELL=1, DRAWFRAME=1; other requests/KEEP_CURSOR=0.
+Static demo fills inside (1,1), outside (3,3), edge (0,0), pauses using
+DEMO_HOLD_CYCLES, then draws 3x3 frame at (0,0). No clear/redraw of markers
+between phases. Standalone fill branch suppressed in this combined mode.
+Library/initialization/timing unchanged; no additional demo RAM variable.
+IDE build/warnings/checksum/memory and four-rotation hardware: PENDING.
+Individual build reports are not results for this combined configuration.
+No compilation or hardware testing performed by Codex.
+
+FillCell + drawFrame compile failure / encoding repair - 2026-10-22
+User report, verbatim:
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\feature_config.h(1): Syntax error : 'Ã¯Â»Â¿'
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x190 , Remain Free-Code : 0x260 [+37] , Remain Free-RAM : 16
+
+1 error(s), 0 warning(s)
+
+Failed compilation: memory lines above are diagnostic output, not a valid
+combined-build memory result. Removed the malformed BOM prefix from
+feature_config.h only; remaining header bytes unchanged, ASCII without BOM.
+No library/demo/init/timing changes. Added encoding regression checks.
+Successful IDE build/memory/hardware validation were pending at repair
+time; the subsequent user report follows below.
+No Mini-C compilation or hardware testing performed by Codex.
+
+FillCell + drawFrame marker demo - user validation, 2026-10-22
+IDE 1.04C1; FILLCELL=1, DRAWFRAME=1; other public requests/KEEP_CURSOR=0;
+drawing enabled, timed cycling disabled. This report follows encoding repair.
+User confirms warning-free compilation and correct behavior in all four
+orientations: inside and outside markers stay unchanged; the edge marker
+is replaced by the frame corner after the pause.
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0xB90F28
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x26D , Remain Free-Code : 0x183 , Remain Free-RAM : 6
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1F7 , Remain Free-Code : 0x1F9 , Remain Free-RAM : 6
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 387 / ICE 505 words; free RAM 6 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Address range below reserved
+stack is not the free-RAM count. Compared with integrated frame-only
+0x220A16 (427 / 545 free ROM, RAM 8), this complete marker demo costs 40
+ROM words on each target and 2 RAM bytes, with unchanged stack reservation.
+This includes fillCell, marker calls and observation pause, not isolated API
+costs. Confirms preservation for this 3x3 demo; integrated frame edge cases
+and other combinations remain unreported. Earlier failed build figures are
+not used as successful memory results. No compilation or hardware testing
+performed by Codex; documentation-only update.
+
+Single generated-image integration revision - 2026-10-22
+DRAWIMAGE=1; other public requests/KEEP_CURSOR=0; IMAGE_MODE=1,
+drawing enabled, timed cycling disabled. One static generated pizza header,
+shared IMAGE_TILE BYTE and existing CELL_DATA[8]; no image selector/counter.
+Fill/frame and all other feature demos retained under IMAGE_MODE=0.
+Original library routine bodies/init/transport timing unchanged.
+Fresh converter output matches all 16 prior accepted pizza tiles. Host
+source/dependency/header/mapping checks are not Mini-C or hardware tests.
+Image-enabled results were pending at integration time; subsequent user
+validation follows below.
+Restored fill/frame regression was pending at integration time; subsequent
+user validation is recorded below.
+No new compilation or hardware testing performed by Codex.
+
+One-image pizza demo - user validation, 2026-10-22
+IDE 1.04C1; DRAWIMAGE=1, other public requests/KEEP_CURSOR=0;
+IMAGE_MODE=1, demo drawing enabled, timed cycling disabled.
+User confirms warning-free compilation and correct pizza display in all four
+orientations on hardware. One supplied report; separate orientation
+checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x0A0700
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2AB , Remain Free-Code : 0x145 , Remain Free-RAM : 17
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x235 , Remain Free-Code : 0x1BB , Remain Free-RAM : 17
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 325 / ICE 443 words; free RAM 17 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Earlier separate pizza-header
+0xDB1A78 reported 328 / 446 free ROM, RAM 19, reserved stack 10. This complete
+integration therefore uses 3 more ROM words on each target, has 2 fewer free
+RAM bytes and reserves 2 more stack bytes. No cause is inferred or isolated
+API cost claimed. Restored fill/frame regression and other unreported
+combinations remain pending. No compilation or hardware testing performed
+by Codex; documentation-only update.
+
+Restored fill/frame with image support disabled - user report, 2026-10-22
+Post-image-integration regression, IDE 1.04C1. FILLCELL=1, DRAWFRAME=1,
+DRAWIMAGE=0; other public requests/KEEP_CURSOR=0. IMAGE_MODE=0; drawing
+enabled, timed cycling disabled, observation hold 2000000.
+User confirms warning-free compilation and correct operation in all four
+orientations: inside/outside markers unchanged, edge marker becomes frame
+corner. One supplied report; separate orientation checksums not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0xB90F28
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x26D , Remain Free-Code : 0x183 , Remain Free-RAM : 6
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1F7 , Remain Free-Code : 0x1F9 , Remain Free-RAM : 6
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 387 / ICE 505 words; free RAM 6 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. All figures and checksum
+match the pre-image-integration fill/frame baseline: no reported ROM/RAM
+overhead with DRAWIMAGE disabled, unchanged reserved stack. No binary
+identity or peak stack measurement is claimed. Other unreported settings
+remain pending. No compilation or hardware testing performed by Codex;
+documentation-only update.
+
+DrawLine-only integrated demo selection - 2026-10-22
+DRAWLINE=1; all other public requests/KEEP_CURSOR=0. IMAGE_MODE=0,
+drawing enabled, timed cycling disabled, rotation initially 0.
+Existing shape demo uses clearTile, diagonal (0,0)..(7,7), drawBitmap at
+logical cell (0,1); no new demo state or observation delay. Single shared
+CELL_DATA[8], inherited rotation/init/library timing unchanged.
+IDE/memory/hardware were pending at selection time; the subsequent user
+report is below. Earlier separate shape reports are not this build's results. No Mini-C compilation or hardware testing performed by Codex.
+
+DrawLine-only diagonal - user validation, 2026-10-22
+IDE 1.04C1; DRAWLINE=1, all other public requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, demo drawing enabled, timed cycling disabled.
+User confirms warning-free compilation and correct diagonal in all four
+orientations on hardware. The tested diagonal is local (0,0)..(7,7) in
+the tile at logical (0,1), not an exhaustive line-input test.
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x36 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x35 are free
+Check Sum is 0xBC03D9
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x273 , Remain Free-Code : 0x17D , Remain Free-RAM : 13
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1FD , Remain Free-Code : 0x1F3 , Remain Free-RAM : 13
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 381 / ICE 499 words; free RAM 13 bytes; reserved stack
+10 bytes (0x36..0x3F), not measured peak usage. Compared with fill-only
+0x0C0BF9 (free ROM 522 / 640, RAM 18, stack 12), the complete line demo
+uses 141 more ROM words on each target and 5 RAM bytes; reserved stack is
+2 bytes smaller. Whole-configuration comparison, not isolated API cost.
+No compilation or hardware testing performed by Codex; documentation only.
+
+DrawRectangle-only integrated demo selection - 2026-10-22
+DRAWRECTANGLE=1; all other public requests/KEEP_CURSOR=0. IMAGE_MODE=0,
+drawing enabled, timed cycling disabled, rotation initially 0.
+Existing shape demo clears CELL_DATA[8], draws inclusive (0,0)..(7,7)
+outline, sends at logical cell (0,1). No new buffer/state/observation delay.
+Library bodies, initialization, clock/pins and transfer timing unchanged.
+IDE/memory/hardware were pending at selection time; subsequent user
+validation is recorded below.
+Prior line/shape-template reports are not results for this configuration.
+No Mini-C compilation or hardware testing performed by Codex.
+
+DrawRectangle-only outline - user validation, 2026-10-22
+IDE 1.04C1; DRAWRECTANGLE=1, all other public requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled.
+User confirms warning-free compilation and correct rectangle outline in all
+four orientations on hardware. Test: inclusive local (0,0)..(7,7) in tile
+at logical (0,1). Not an exhaustive geometry/invalid-input test.
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x36 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x35 are free
+Check Sum is 0x441A86
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x22F , Remain Free-Code : 0x1C1 , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1B9 , Remain Free-Code : 0x237 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 449 / ICE 567 words; free RAM 14 bytes; reserved stack
+10 bytes (0x36..0x3F), not measured peak usage. Relative to line-only
+0xBC03D9 (381 / 499 free ROM, RAM 13, stack 10), this configuration has
+68 more free ROM words on each target and 1 more free RAM byte, with
+unchanged stack reservation. Whole-configuration figures, not isolated API
+costs. No compilation or hardware testing performed by Codex;
+documentation-only update.
+
+FillRectangle-only integrated demo selection - 2026-10-22
+FILLRECTANGLE=1; all other public requests/KEEP_CURSOR=0. IMAGE_MODE=0,
+drawing enabled, timed cycling disabled, rotation initially 0.
+Existing shape demo clears CELL_DATA[8], fills inclusive local (3,3)..(4,4),
+then sends tile at logical (0,1). Expected four lit central pixels only.
+No new buffer/state/observation delay; library/init/transfer timing unchanged.
+IDE/memory/hardware were pending at selection time; subsequent user
+validation is recorded below.
+Prior line/rectangle/shape-template reports are not this build's results.
+No Mini-C compilation or hardware testing performed by Codex.
+
+FillRectangle-only block - user validation, 2026-10-22
+IDE 1.04C1; FILLRECTANGLE=1, other public requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled.
+User confirms warning-free compilation and correct filled block in all four
+orientations on hardware. Test: inclusive local (3,3)..(4,4), at logical
+cell (0,1). Not an exhaustive geometry or invalid-input test.
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x36 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x35 are free
+Check Sum is 0x631810
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x225 , Remain Free-Code : 0x1CB , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1AF , Remain Free-Code : 0x241 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 459 / ICE 577 words; free RAM 14 bytes; reserved stack
+10 bytes (0x36..0x3F), not measured peak usage. Relative to rectangle-only
+0x441A86 (449 / 567 free ROM, RAM 14, stack 10), this complete demo has
+10 more free ROM words on each target, with unchanged RAM/stack reservation.
+Whole-configuration comparison, not isolated API cost. No compilation or
+hardware testing performed by Codex; documentation-only update.
+
+Three-shape composition demo revision - 2026-10-22
+DRAWRECTANGLE=DRAWLINE=FILLRECTANGLE=1; all other requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling off, rotation initially 0.
+clearTile once; outline (0,0)..(7,7); diagonal (0,0)..(7,7); filled block
+(4,1)..(5,2); drawBitmap once at logical (0,1). All share CELL_DATA[8].
+Individual fill-only geometry remains centered; off-diagonal coordinates
+apply only when all three shape APIs are enabled. No extra buffer/state/
+observation delay. Library bodies/init/clock/pins/transfer timing unchanged.
+Combined results were pending at demo revision time; subsequent user
+validation follows below. Individual reports are not combined-build results.
+No Mini-C compilation or hardware testing performed by Codex.
+
+Three-shape composition - user validation, 2026-10-22
+IDE 1.04C1; DRAWRECTANGLE=DRAWLINE=FILLRECTANGLE=1; other public requests/
+KEEP_CURSOR=0; IMAGE_MODE=0, drawing enabled, timed cycling disabled.
+User confirms warning-free compilation and correct rectangle, diagonal line
+and filled block together in all four orientations on hardware.
+Test: one shared tile, outer (0,0)..(7,7) outline, diagonal (0,0)..(7,7),
+filled block (4,1)..(5,2), displayed once at logical (0,1).
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x36 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x35 are free
+Check Sum is 0x4C0BDA
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2D9 , Remain Free-Code : 0x117 , Remain Free-RAM : 13
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x263 , Remain Free-Code : 0x18D , Remain Free-RAM : 13
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 279 / ICE 397 words; free RAM 13 bytes; reserved stack
+10 bytes (0x36..0x3F), not measured peak usage. Relative to line-only
+0xBC03D9 (381 / 499 free ROM, RAM 13, stack 10), the composed demo uses
+102 more ROM words on each target, with unchanged free RAM/stack reservation.
+Whole-configuration comparison, not isolated API cost. Validates composition
+for this tile, not all geometries or other feature combinations. No compilation
+or hardware testing performed by Codex; documentation-only update.
+
+Text-only drawNumber + drawChar demo selection - 2026-10-22
+DRAWNUMBER=DRAWCHAR=1; other public requests/KEEP_CURSOR=0. IMAGE_MODE=0,
+drawing enabled, timed cycling off, rotation initially 0.
+Existing application: setCursor(0,0) through globals; NUMBER_VALUE=37;
+drawNumber; A=0x25; drawChar. Same CELL_DATA[8], no string buffer/counter.
+Font unchanged: digits, space, percent. No bitmap/shape/bar/image output.
+Library routines, initialization, clock/pins and transfer timing unchanged.
+IDE/memory/hardware were pending at selection time; subsequent user
+validation is recorded below.
+Separate minimal-text-plus-bar reports are not results for this build.
+No Mini-C compilation or hardware testing performed by Codex.
+
+37% text-only drawNumber + drawChar - user validation, 2026-10-22
+IDE 1.04C1; DRAWNUMBER=DRAWCHAR=1, other public requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled. Font unchanged:
+digits 0..9, space and percent. No string buffer or bar/shape/image output.
+User confirms warning-free compilation and correct 37% in all four
+orientations on hardware. One supplied report; separate orientation
+checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x0106DC
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2A4 , Remain Free-Code : 0x14C , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x22E , Remain Free-Code : 0x1C2 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 332 / ICE 450 words; free RAM 14 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Relative to separate minimal-
+text-plus-bar 0x031F48 (204 / 322 free ROM, RAM 2, stack 12), this complete
+text-only configuration has 128 more free ROM words on each target and 12
+more free RAM bytes, with unchanged stack reservation. Different project,
+application and font configurations are included: not isolated bar cost.
+Confirms fixed 37%, not all numeric values or dynamic erasure behavior.
+No compilation or hardware testing performed by Codex; documentation only.
+
+Integrated 37% text + percentage-bar demo selection - 2026-10-22
+DRAWNUMBER=DRAWCHAR=PERCENTBAR=1; other requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling off; BAR_LENGTH=3,
+STATIC_PERCENT=37. Fixed 37% text at (0,0), three-cell 37% bar at (0,2).
+Existing sequential text/bar branches reuse CELL_DATA[8]; font unchanged,
+no demo string buffer/counter or observation delay. No library/init/timing
+changes. Other accepted projects untouched.
+Combined results were pending at selection time; subsequent user
+validation follows below. Text-only/separate minimal-text-plus-bar figures
+are not this build's results. No Mini-C compilation or hardware testing performed by Codex.
+
+Integrated 37% text + percentage bar - user validation, 2026-10-22
+IDE 1.04C1; DRAWNUMBER=DRAWCHAR=PERCENTBAR=1; other public requests/
+KEEP_CURSOR=0; IMAGE_MODE=0, drawing enabled, timed cycling disabled,
+BAR_LENGTH=3, STATIC_PERCENT=37. Fixed text at (0,0), bar at (0,2).
+User confirms warning-free compilation and correct 37% text and bar in all
+four orientations on hardware. One supplied report; separate orientation
+checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0xDE0F0B
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x32B , Remain Free-Code : 0xC5 , Remain Free-RAM : 2
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x2B5 , Remain Free-Code : 0x13B , Remain Free-RAM : 2
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 197 / ICE 315 words; free RAM 2 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Versus integrated text-only
+0x0106DC (332 / 450 free ROM, RAM 14, stack 12), this whole configuration
+uses 135 more ROM words on each target and 12 more RAM bytes; stack unchanged.
+Versus separate minimal-text-plus-bar 0x031F48 (204 / 322 free ROM, RAM 2,
+stack 12), it uses 7 more ROM words on each target, with unchanged free RAM
+and stack reservation. Different project/application/font settings included;
+not isolated API costs. Validates fixed 37%, not dynamic reading erasure.
+No compilation or hardware testing performed by Codex; documentation only.
+
+DrawString-only 37% demo selection - 2026-10-22
+DRAWSTRING=1; all other public requests/KEEP_CURSOR=0; IMAGE_MODE=0,
+drawing enabled, timed cycling off, rotation initially 0.
+Existing BYTE DEMO_TEXT[3] stores 0x33,0x37,0x25 separately from CELL_DATA[8];
+STRING_POINT=DEMO_TEXT, STRING_LENGTH=3, drawString at logical (0,0).
+Automatic drawChar dependency; no standalone char, number, bar, shape or
+image demo. Font unchanged. No new library buffer/API/wrapper/delay.
+Library/init/clock/pins/transfer timing unchanged; other projects untouched.
+IDE/memory/hardware were pending at selection time; subsequent user
+validation is recorded below.
+Prior number/string reports from other projects do not establish this build.
+No Mini-C compilation or hardware testing performed by Codex.
+
+DrawString-only 37% - user validation, 2026-10-22
+IDE 1.04C1; DRAWSTRING=1; other public requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled. Existing three-byte
+DEMO_TEXT input contains 0x33,0x37,0x25, separate from CELL_DATA[8].
+User confirms warning-free compilation and correct 37% using drawString
+in all four orientations on hardware. One supplied report; separate
+orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x31161F
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x282 , Remain Free-Code : 0x16E , Remain Free-RAM : 13
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x20C , Remain Free-Code : 0x1E4 , Remain Free-RAM : 13
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 366 / ICE 484 words; free RAM 13 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Compared with number+char-only
+0x0106DC (332 / 450 free ROM, RAM 14, stack 12), this whole string demo has
+34 more free ROM words on each target and 1 fewer free RAM byte, with
+unchanged reserved stack. Includes API/input-buffer/application differences,
+not isolated per-function costs. Fixed reading validation does not establish
+clipping, zero-length handling, dynamic erasure or string/bar combined fit.
+No compilation or hardware testing performed by Codex; documentation only.
+
+DrawString compile-time boundary demo revision - 2026-10-22
+DRAWSTRING=1, other requests/KEEP_CURSOR=0; IMAGE_MODE=0, drawing enabled,
+timed cycling off. STRING_EDGES=1; STRING_CASE=0 initially.
+Cases: 0 valid start/zero length; 1 last-three-cell exact fit 37%; 2 last-two-
+cell overflow shows 37, leaves % unread; 3 invalid column TEXT_COLUMNS.
+Existing DEMO_TEXT[3]/CELL_DATA[8] reused, no extra runtime variable/delay.
+STRING_EDGES=0 restores accepted plain reading. Library/init/timing unchanged.
+Case 0: was pending at revision time; user validation follows below.
+Case 1 was pending at demo revision time; subsequent user validation below.
+Case 2 was pending at revision time; subsequent user validation below.
+Case 3 was pending at revision time; subsequent user validation below.
+Each case needs checks in all four rotations. Prior plain reading report is
+not a boundary-case build report. No Mini-C compilation or hardware testing
+performed by Codex.
+
+DrawString case 0, zero length - user validation, 2026-10-22
+IDE 1.04C1; DRAWSTRING=1, other public requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled;
+STRING_EDGES=1, STRING_CASE=0. Valid start (0,0), STRING_LENGTH=0.
+User confirms warning-free compilation and screen stays blank in all four
+orientations on hardware. Blank output does not demonstrate rotation geometry
+or prove absence of RAM reads. No debugger-state verification was supplied.
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x3912A3
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x284 , Remain Free-Code : 0x16C , Remain Free-RAM : 13
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x20E , Remain Free-Code : 0x1E2 , Remain Free-RAM : 13
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 364 / ICE 482 words; free RAM 13 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Compared with plain string
+0x31161F (366 / 484 free ROM, RAM 13, stack 12), this complete case build
+uses 2 more ROM words on each target with unchanged RAM/stack reservation.
+Whole-configuration comparison, not isolated API cost. Cases 1,2,3 remain
+pending. No compilation or hardware testing performed by Codex;
+documentation-only update.
+
+DrawString case 1, exact fit - user validation, 2026-10-23
+IDE 1.04C1; DRAWSTRING=1, other public requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled;
+STRING_EDGES=1, STRING_CASE=1. Start at (TEXT_COLUMNS-3,0), length 3.
+User confirms warning-free compilation and 37% displayed correctly in the
+last three cells in all four orientations on hardware. No debugger-state
+verification was supplied. One report; separate orientation checksums not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0xD101BC
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x287 , Remain Free-Code : 0x169 , Remain Free-RAM : 13
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x211 , Remain Free-Code : 0x1DF , Remain Free-RAM : 13
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 361 / ICE 479 words; free RAM 13 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Compared with case 0
+0x3912A3 (364 / 482 free ROM, RAM 13, stack 12), this complete case build
+uses 3 more ROM words on each target with unchanged RAM/stack reservation.
+Whole-configuration comparison, not isolated API cost. Overflow and invalid-
+cursor cases remain pending. No compilation or hardware testing performed
+by Codex; documentation-only update.
+
+DrawString case 2, overflow - user validation, 2026-10-23
+IDE 1.04C1; DRAWSTRING=1, other public requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled;
+STRING_EDGES=1, STRING_CASE=2. Start (TEXT_COLUMNS-2,0), input 37%, length 3.
+User confirms warning-free compilation and only 37 in the last two cells,
+with no wrapping in all four orientations on hardware. No debugger-state
+verification supplied. One report; separate orientation checksums not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x540D13
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x287 , Remain Free-Code : 0x169 , Remain Free-RAM : 13
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x211 , Remain Free-Code : 0x1DF , Remain Free-RAM : 13
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 361 / ICE 479 words; free RAM 13 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Same memory figures as case 1
+0xD101BC, different checksum; no binary identity or explanation for equal
+memory usage inferred. Invalid-cursor case 3 remains pending. At documentation
+update, saved DEMO_STRING_CASE was already 3; it was preserved and is not
+attributed to this case 2 report. No compilation or hardware testing performed
+by Codex; documentation only.
+
+DrawString case 3, invalid column - user validation, 2026-10-23
+IDE 1.04C1; DRAWSTRING=1, other requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled;
+STRING_EDGES=1, STRING_CASE=3. Cursor (TEXT_COLUMNS,0), input 37%, length 3.
+User confirms warning-free compilation and blank screen in all four
+orientations on hardware. Blank output does not demonstrate rotation geometry
+or prove absence of RAM reads. No debugger-state observations were supplied.
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x49112E
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x285 , Remain Free-Code : 0x16B , Remain Free-RAM : 13
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x20F , Remain Free-Code : 0x1E1 , Remain Free-RAM : 13
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 363 / ICE 481 words; free RAM 13 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Compared with case 2
+0x540D13 (361 / 479 free ROM, RAM 13, stack 12), this whole case build has
+2 more free ROM words on each target, with unchanged RAM/stack reservation.
+All four defined string boundary cases now have warning-free builds and
+user hardware confirmation in all four orientations. No validation of
+invalid pages or other unreported inputs/combinations is implied.
+No compilation or hardware testing performed by Codex; documentation only.
+
+DrawNumber compile-time case demo revision - 2026-10-23
+DRAWNUMBER=1; other requests/KEEP_CURSOR=0; IMAGE_MODE=0, drawing enabled,
+timed cycling off. NUMBER_CASES=1, NUMBER_CASE=0 initially; no % appended.
+Cases 0..5: 0,9,10,99,100,255 at (0,0). Case 6: 255 exact fit, last three
+cells. Case 7: 255 overflow shows prefix 25 in last two cells, no wrap.
+Case 8: 255 at invalid column TEXT_COLUMNS; screen blank.
+No extra runtime variable/buffer/counter; existing NUMBER_VALUE, CELL_DATA[8]
+and conversion/renderer scratch reused. String tests retained. NUMBER_CASES=0
+restores accepted fixed 37% numeric branch. Library/init/timing unchanged.
+Cases 0,1,2,3,4,5,6,7,8 IDE/errors/warnings/checksum/ROM/RAM/stack and
+four-rotation hardware: PENDING, individually. Prior fixed-reading reports
+are not these case-build results. No Mini-C compilation or hardware testing
+performed by Codex.
+
+DrawNumber case 0, value 0 - user validation, 2026-10-23
+IDE 1.04C1; DRAWNUMBER=1, other requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled;
+NUMBER_CASES=1, NUMBER_CASE=0. NUMBER_VALUE=0 at logical (0,0).
+User confirms warning-free compilation and a single 0 displayed correctly
+in all four orientations on hardware. No debugger-state observations supplied.
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x611B93
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2A1 , Remain Free-Code : 0x14F , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x22B , Remain Free-Code : 0x1C5 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 335 / ICE 453 words; free RAM 14 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Relative to fixed 37%
+number+char 0x0106DC (332 / 450 free ROM, RAM 14, stack 12), this whole
+numeric-case demo has 3 more free ROM words on each target with unchanged
+RAM/stack reservation. Whole-configuration comparison, not isolated API cost.
+Numeric cases 1..8 remain pending. No compilation or hardware testing
+performed by Codex; documentation-only update.
+
+DrawNumber case 1, value 9 - user validation, 2026-10-23
+IDE 1.04C1; DRAWNUMBER=1, other requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled;
+NUMBER_CASES=1, NUMBER_CASE=1. NUMBER_VALUE=9 at logical (0,0).
+User confirms warning-free compilation and a single 9 displayed correctly
+in all four orientations on hardware. No debugger-state observations supplied.
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0xD10A64
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2A2 , Remain Free-Code : 0x14E , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x22C , Remain Free-Code : 0x1C4 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 334 / ICE 452 words; free RAM 14 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Compared with case 0
+0x611B93 (335 / 453 free ROM, RAM 14, stack 12), this complete case build
+uses 1 more ROM word on each target with unchanged RAM/stack reservation.
+No isolated API cost or compiler-specific cause is inferred. Cases 2..8
+remain pending. No compilation or hardware testing performed by Codex;
+documentation-only update.
+
+DrawNumber case 2, value 10 - user validation, 2026-10-23
+IDE 1.04C1; DRAWNUMBER=1, other requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled;
+NUMBER_CASES=1, NUMBER_CASE=2. NUMBER_VALUE=10 at logical (0,0).
+User confirms warning-free compilation and correct 10 in all four
+orientations on hardware. No debugger-state observations supplied.
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0xA1083D
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2A2 , Remain Free-Code : 0x14E , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x22C , Remain Free-Code : 0x1C4 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 334 / ICE 452 words; free RAM 14 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Matches case 1 memory
+figures, with different checksum; no binary identity/cause inferred.
+Numeric cases 3..8 remain pending. Saved DEMO_NUMBER_CASE was already 3 at
+record update and was preserved; this report is explicitly case 2.
+No compilation or hardware testing performed by Codex; documentation only.
+
+DrawNumber case 3, value 99 - user validation, 2026-10-23
+IDE 1.04C1; DRAWNUMBER=1, other requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled;
+NUMBER_CASES=1, NUMBER_CASE=3. NUMBER_VALUE=99 at logical (0,0).
+User confirms 99 displays correctly in all four orientations on hardware;
+supplied build has 0 errors / 0 warnings. No debugger-state observations
+supplied. One report; separate orientation checksums not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0xAA0FC0
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2A2 , Remain Free-Code : 0x14E , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x22C , Remain Free-Code : 0x1C4 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 334 / ICE 452 words; free RAM 14 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Matches case 2 memory
+figures, different checksum; no binary identity or cause inferred.
+Cases 4..8 remain pending. Saved DEMO_NUMBER_CASE was already 4 during this
+update and was preserved; report above is case 3. No compilation or
+hardware testing performed by Codex; documentation-only update.
+
+DrawNumber case 4, value 100 - user validation, 2026-10-23
+IDE 1.04C1; DRAWNUMBER=1, other requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled;
+NUMBER_CASES=1, NUMBER_CASE=4. NUMBER_VALUE=100 at logical (0,0).
+User confirms warning-free compilation and correct 100 in all four
+orientations on hardware. No debugger-state observations supplied.
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0xEC085B
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2A2 , Remain Free-Code : 0x14E , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x22C , Remain Free-Code : 0x1C4 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 334 / ICE 452 words; free RAM 14 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Matches case 3 memory
+figures, different checksum; no binary identity or cause inferred.
+Numeric cases 5..8 remain pending. No compilation or hardware testing
+performed by Codex; documentation-only update.
+
+DrawNumber case 5, value 255 - user validation, 2026-10-23
+IDE 1.04C1; DRAWNUMBER=1, other requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled;
+NUMBER_CASES=1, NUMBER_CASE=5. NUMBER_VALUE=255 at logical (0,0).
+User confirms warning-free compilation and correct 255 in all four
+orientations on hardware. No debugger-state observations supplied.
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x931C2C
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2A2 , Remain Free-Code : 0x14E , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x22C , Remain Free-Code : 0x1C4 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 334 / ICE 452 words; free RAM 14 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Matches case 4 memory
+figures, different checksum; no binary identity or cause inferred.
+Numeric values cases 0..5 now user-validated; cases 6..8 remain pending.
+No compilation or hardware testing performed by Codex; documentation only.
+
+DrawNumber case 6, exact-fit 255 - user validation, 2026-10-23
+IDE 1.04C1; DRAWNUMBER=1, other requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled;
+NUMBER_CASES=1, NUMBER_CASE=6. NUMBER_VALUE=255, start (TEXT_COLUMNS-3,0).
+User confirms warning-free compilation and 255 correctly in the last three
+cells with no wrapping in all four orientations on hardware. No debugger-
+state observations supplied. One report; separate orientation checksums
+were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x891038
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2A5 , Remain Free-Code : 0x14B , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x22F , Remain Free-Code : 0x1C1 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 331 / ICE 449 words; free RAM 14 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Relative to case 5
+0x931C2C (334 / 452 free ROM, RAM 14, stack 12), this complete case build
+uses 3 more ROM words on each target with unchanged RAM/stack reservation.
+No isolated API cost or compiler-specific cause inferred. Cases 7 and 8
+remain pending. Saved case was already 7 during this update and preserved;
+this report is explicitly case 6. No compilation or hardware testing
+performed by Codex; documentation only.
+
+DrawNumber case 7, overflow - user validation, 2026-10-23
+IDE 1.04C1; DRAWNUMBER=1, other requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled;
+NUMBER_CASES=1, NUMBER_CASE=7. Input 255, start (TEXT_COLUMNS-2,0).
+User confirms warning-free compilation and only 25 in the last two cells,
+with no wrapping, in all four orientations on hardware. No debugger-state
+observations supplied. One report; separate orientation checksums not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0xB51F1F
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2A5 , Remain Free-Code : 0x14B , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x22F , Remain Free-Code : 0x1C1 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 331 / ICE 449 words; free RAM 14 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Matches case 6 memory
+figures, different checksum; no binary identity or cause inferred.
+Case 8 remains pending. Saved DEMO_NUMBER_CASE was already 8 during this
+record update and preserved; report above is case 7. No compilation or
+hardware testing performed by Codex; documentation only.
+
+DrawNumber case 8, invalid column - user validation, 2026-10-23
+IDE 1.04C1; DRAWNUMBER=1, other requests/KEEP_CURSOR=0;
+IMAGE_MODE=0, drawing enabled, timed cycling disabled;
+NUMBER_CASES=1, NUMBER_CASE=8. Input 255 at (TEXT_COLUMNS,0).
+User confirms warning-free compilation and blank screen with invalid cursor
+in all four orientations on hardware. Blank output does not demonstrate
+rotation geometry. No debugger-state observations supplied.
+One supplied report; separate orientation checksums were not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0xD11669
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2A3 , Remain Free-Code : 0x14D , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x22D , Remain Free-Code : 0x1C3 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 333 / ICE 451 words; free RAM 14 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Compared with case 7
+0xB51F1F (331 / 449 free ROM, RAM 14, stack 12), this complete case build
+has 2 more free ROM words on each target, unchanged RAM/stack reservation.
+Whole-configuration comparison, not isolated API cost. All nine defined
+number cases 0..8 now have warning-free builds and user hardware confirmation
+in all four orientations. Invalid pages, all numeric inputs or other feature
+combinations are not implied. No compilation or hardware testing performed
+by Codex; documentation-only update.
+
+Library-header separation - 2026-10-23
+Reference snapshot: reference_before_header_split, source/project/docs/tools/
+assets copied byte-for-byte, SHA256 manifest; generated IDE outputs excluded.
+Main .C retains configuration, section-1 board/timing definitions and FPPA0
+application/demo, with oled_library.h included at former section-2 position.
+Header contains all prior library routines/state and guarded bitmap include.
+Old demo_app.h content inlined at original include site; active file now a
+comment-only note, replaced in PRJ header list by oled_library.h.
+Normalized expanded source exactly matches snapshot expansion (only four
+introductory comment lines changed). No routine/init/timing/config-byte change.
+Current feature/demo selections preserved, including number case 8.
+All earlier compiler/hardware reports in this file predate this split.
+Post-split results were pending at separation time; subsequent text
+regression validation follows below. Image/other recipes remain pending.
+Host source/snapshot checks do not establish generated-code equivalence.
+No Mini-C compilation or hardware testing performed by Codex.
+
+Header-separated 37% text regression - user validation, 2026-10-23
+IDE 1.04C1; DRAWNUMBER=DRAWCHAR=1; other requests/KEEP_CURSOR=0;
+NUMBER_CASES=0, STRING_EDGES=0, IMAGE_MODE=0, drawing enabled, timed cycling off.
+User confirms warning-free compilation, correct 37% in all four orientations,
+and ROM/RAM figures matching the reference snapshot. Only the active build
+log was supplied; reference comparison is user-reported. No separately pasted
+snapshot log, binary comparison or per-orientation checksums are implied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x0106DC
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2A4 , Remain Free-Code : 0x14C , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x22E , Remain Free-Code : 0x1C2 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 332 / ICE 450 words; free RAM 14 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Matches accepted pre-split
+37% number/char figures and checksum. User reports matching reference snapshot
+ROM/RAM: no reported memory overhead for this text configuration. Post-split
+image and other recipes remain pending. No compilation or hardware testing
+performed by Codex; documentation-only update, snapshot/code unchanged.
+
+Header-separated one-image pizza regression - user validation, 2026-10-23
+IDE 1.04C1; DRAWIMAGE=1; other requests/KEEP_CURSOR=0;
+IMAGE_MODE=1, drawing enabled, timed cycling disabled.
+User confirms warning-free compilation, correct pizza in all four orientations,
+and ROM/RAM matching the reference snapshot. Only active build output supplied;
+no separate full snapshot log, binary comparison or per-orientation checksums
+implied. Snapshot comparison is user-reported.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_experiment\PMS150C_OLED_LIBRARY.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x0A0700
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2AB , Remain Free-Code : 0x145 , Remain Free-RAM : 17
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x235 , Remain Free-Code : 0x1BB , Remain Free-RAM : 17
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 325 / ICE 443 words; free RAM 17 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Matches accepted pre-split
+image figures/checksum. User confirms matching reference ROM/RAM: no reported
+memory overhead in this image configuration. Header-separated text and image
+regressions now both user-validated; other recipes retain earlier scope.
+No compilation or hardware testing performed by Codex; documentation-only
+update, reference snapshot, code and settings unchanged.

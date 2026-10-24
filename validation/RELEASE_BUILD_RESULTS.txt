@@ -1,0 +1,27 @@
+Extracted v1.0.0 application template - user validation, 2026-10-23
+IDE 1.04C1; default drawNumber + drawChar static 37% application.
+User confirms 0 errors / 0 warnings, correct 37% in all four orientations,
+and ROM/RAM matching the validated template. One report; separate orientation
+checksums were not supplied. No debugger/peak-stack measurements supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\releases\Miniature_OLED_Library_v1.0.0\application_template\PMS150C_OLED_APP.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\releases\Miniature_OLED_Library_v1.0.0\application_template\PMS150C_OLED_APP.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x0106DC
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2A4 , Remain Free-Code : 0x14C , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x22E , Remain Free-Code : 0x1C2 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 332 / ICE 450 words; RAM 14 bytes; reserved stack 12 bytes,
+not measured peak usage. Matches validated template/reference figures/checksum;
+no reported ROM/RAM overhead or saving. No binary-identity claim.
+Codex did not compile/program/test hardware. The ZIP refresh changes only
+release documentation/status and adds this report; frozen MCU payload remains
+unchanged. The local extracted APP_ROTATION selection and generated IDE files
+are preserved in the working folder, not incorporated into the ZIP.

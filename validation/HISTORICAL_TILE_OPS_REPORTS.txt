@@ -1,0 +1,302 @@
+Optional tile operations - 2026-10-21
+C F I   IDE build / checksum / memory / hardware
+0 0 0   VALIDATED: 0 errors / 0 warnings; blank at all four rotation settings
+0 0 1   VALIDATED: 0 errors / 0 warnings; hardware all four orientations
+0 1 0   VALIDATED: 0 errors / 0 warnings; hardware all four orientations
+0 1 1   USER-CONFIRMED: 0 errors / 0 warnings; hardware all four orientations;
+        REPORT MATCHES FILL-ONLY: configuration-specific memory unverified
+1 0 0   VALIDATED: 0 errors / 0 warnings; hardware all four orientations
+1 0 1   USER-CONFIRMED: 0 errors / 0 warnings; hardware all four orientations;
+        REPORT MATCHES CLEAR-ONLY: configuration-specific memory unverified
+1 1 0   VALIDATED: 0 errors / 0 warnings; hardware all four orientations
+1 1 1   VALIDATED: 0 errors / 0 warnings; hardware all four orientations
+All eight have user-reported build/hardware confirmations; clear+invert and
+fill+invert memory reports match single-operation reports and remain unresolved. Five host source/model checks pass; not Mini-C execution.
+No compiler, simulator, programmer or hardware tests performed by Codex.
+Parent figures in README are references only; measured clear-only savings
+are recorded below. Other configurations remain pending.
+
+All-enabled tile-operations validation - user report, 2026-10-21
+OLED_USE_CLEARCELL=1, OLED_USE_FILLCELL=1, OLED_USE_INVERTTILE=1.
+IDE 1.04C1: 0 errors / 0 warnings. The all-enabled demo works correctly in
+all four orientations on the user's hardware. Checksum 0x42177B.
+  PMS150C: ROM size 0x3F0; last use 0x248; free code 0x1A8 (424 words).
+  ICE: ROM size 0x3F0; last use 0x1D2; free code 0x21E (542 words).
+  Free RAM: 16 bytes on both targets.
+  Reserved stack: 0x34..0x3F (12 bytes); vector 0x0.
+  Address range 0x00..0x33 is not remaining free-RAM count.
+This is the template's all-enabled baseline for future feature-exclusion
+comparisons. At the time of this baseline report, the other seven
+configurations were unmeasured; see newer results below. One report supplied; separate per-orientation checksums were
+not provided. Stack reservation is not measured runtime peak use.
+No compiler, simulator, programmer or hardware test performed by Codex.
+
+User-supplied all-enabled report (2026-10-21, verbatim):
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x42177B
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x248 , Remain Free-Code : 0x1A8 , Remain Free-RAM : 16
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1D2 , Remain Free-Code : 0x21E , Remain Free-RAM : 16
+
+0 error(s), 0 warning(s)
+
+clearCell-only validation - user report, 2026-10-21
+OLED_USE_CLEARCELL=1, OLED_USE_FILLCELL=0, OLED_USE_INVERTTILE=0.
+IDE 1.04C1: 0 errors / 0 warnings. Works in all four orientations on the
+user's hardware: only the selected arrow clears after the pause; other rows
+stay blank. Checksum 0x7105B7.
+  PMS150C: ROM size 0x3F0; last use 0x234; free code 0x1BC (444 words).
+  ICE: ROM size 0x3F0; last use 0x1BE; free code 0x232 (562 words).
+  Free RAM: 16 bytes on both targets.
+  Reserved stack: 0x34..0x3F (12 bytes); vector 0x0.
+  Address range 0x00..0x33 is not remaining free-RAM count.
+Compared with all-enabled baseline 0x42177B, this build leaves 20 more ROM
+words free on both targets; free RAM and stack reservation are unchanged.
+This is a whole-demo comparison, including excluded operations and demo
+calls, not isolated function costs. Stack reservation is not measured peak.
+One report supplied; separate per-orientation checksums were not provided.
+All-enabled and clear-only configurations are user-validated; the remaining
+six await IDE reports and hardware observations.
+No compiler, simulator, programmer or hardware test performed by Codex.
+
+User-supplied clearCell-only report (2026-10-21, verbatim):
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x7105B7
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x234 , Remain Free-Code : 0x1BC , Remain Free-RAM : 16
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1BE , Remain Free-Code : 0x232 , Remain Free-RAM : 16
+
+0 error(s), 0 warning(s)
+
+fillCell-only validation - user report, 2026-10-21
+OLED_USE_CLEARCELL=0, OLED_USE_FILLCELL=1, OLED_USE_INVERTTILE=0.
+IDE 1.04C1: 0 errors / 0 warnings. The solid cell displays correctly in
+all four orientations on the user's hardware; other rows stay blank.
+Checksum 0x030103.
+  PMS150C: ROM size 0x3F0; last use 0x230; free code 0x1C0 (448 words).
+  ICE: ROM size 0x3F0; last use 0x1BA; free code 0x236 (566 words).
+  Free RAM: 16 bytes on both targets.
+  Reserved stack: 0x34..0x3F (12 bytes); vector 0x0.
+  Address range 0x00..0x33 is not remaining free-RAM count.
+Compared with all-enabled baseline 0x42177B, this build leaves 24 more ROM
+words free on both targets; free RAM and stack reservation are unchanged.
+Whole-demo savings include excluded routines/calls, pattern loader and
+observation pause, not isolated operation costs. Stack reservation is not
+measured peak use. A solid tile confirms rotated placement, not asymmetric
+pixel rotation. One report supplied; separate rotation checksums not provided.
+All-enabled, clear-only and fill-only configurations are user-validated;
+the remaining five await IDE reports and hardware observations.
+No compiler, simulator, programmer or hardware test performed by Codex.
+
+User-supplied fillCell-only report (2026-10-21, verbatim):
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x030103
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x230 , Remain Free-Code : 0x1C0 , Remain Free-RAM : 16
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1BA , Remain Free-Code : 0x236 , Remain Free-RAM : 16
+
+0 error(s), 0 warning(s)
+
+invertTile-only validation - user report, 2026-10-21
+OLED_USE_CLEARCELL=0, OLED_USE_FILLCELL=0, OLED_USE_INVERTTILE=1.
+IDE 1.04C1: 0 errors / 0 warnings. Works in all four orientations on the
+user's hardware: only the selected arrow inverts after the pause; other
+rows stay blank. Checksum 0x791764.
+  PMS150C: ROM size 0x3F0; last use 0x21C; free code 0x1D4 (468 words).
+  ICE: ROM size 0x3F0; last use 0x1A6; free code 0x24A (586 words).
+  Free RAM: 18 bytes on both targets.
+  Reserved stack: 0x36..0x3F (10 bytes); vector 0x0.
+  Address range 0x00..0x35 is not remaining free-RAM count.
+Compared with all-enabled baseline 0x42177B, this build leaves 44 more ROM
+words and 2 more RAM bytes free on both targets; reserved stack is 2 bytes
+smaller (12 -> 10). Whole-demo savings include excluded routines/calls and
+changed call structure, not isolated operation costs. Reserved stack is not
+measured runtime peak. One report supplied; separate rotation checksums
+were not provided.
+All-enabled and each single-operation configuration are now user-validated
+in all four orientations. Both-off and the three two-operation combinations
+remain pending. No compiler, simulator, programmer or hardware test by Codex.
+
+User-supplied invertTile-only report (2026-10-21, verbatim):
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.C
+Link ...
+memory 0x36 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x35 are free
+Check Sum is 0x791764
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x21C , Remain Free-Code : 0x1D4 , Remain Free-RAM : 18
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1A6 , Remain Free-Code : 0x24A , Remain Free-RAM : 18
+
+0 error(s), 0 warning(s)
+
+All-operations-disabled validation - user report, 2026-10-21
+OLED_USE_CLEARCELL=0, OLED_USE_FILLCELL=0, OLED_USE_INVERTTILE=0.
+IDE 1.04C1: 0 errors / 0 warnings. Screen stays blank in all four
+orientation settings on the user's hardware, with no old pixels remaining.
+Checksum 0x540CFB.
+  PMS150C: ROM size 0x3F0; last use 0x1E1; free code 0x20F (527 words).
+  ICE: ROM size 0x3F0; last use 0x16B; free code 0x285 (645 words).
+  Free RAM: 20 bytes on both targets.
+  Reserved stack: 0x36..0x3F (10 bytes); vector 0x0.
+  Address range 0x00..0x35 is not remaining free-RAM count.
+Versus all-enabled baseline 0x42177B: 103 more ROM words and 4 more RAM
+bytes free on both targets; 2 fewer reserved stack bytes (12 -> 10).
+Whole-demo savings include excluded operations, calls, pattern loading and
+observation pause, not isolated API costs. Basic bitmap/cursor support is
+retained. Stack reservation is not measured runtime peak.
+Blank output confirms clearing under each rotation setting, not visible
+geometric rotation. One report supplied; separate per-orientation checksums
+were not provided. Five configurations are now user-validated; the three
+two-operation combinations remain pending.
+No compiler, simulator, programmer or hardware test performed by Codex.
+
+User-supplied all-disabled report (2026-10-21, verbatim):
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.C
+Link ...
+memory 0x36 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x35 are free
+Check Sum is 0x540CFB
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x1E1 , Remain Free-Code : 0x20F , Remain Free-RAM : 20
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x16B , Remain Free-Code : 0x285 , Remain Free-RAM : 20
+
+0 error(s), 0 warning(s)
+
+clearCell + fillCell validation - user report, 2026-10-21
+OLED_USE_CLEARCELL=1, OLED_USE_FILLCELL=1, OLED_USE_INVERTTILE=0.
+IDE 1.04C1: 0 errors / 0 warnings. Works in all four orientations on the
+user's hardware: only the selected arrow clears; the solid cell stays and
+the inversion row is blank. Checksum 0x7C0D8F.
+  PMS150C: ROM size 0x3F0; last use 0x21D; free code 0x1D3 (467 words).
+  ICE: ROM size 0x3F0; last use 0x1A7; free code 0x249 (585 words).
+  Free RAM: 16 bytes on both targets.
+  Reserved stack: 0x34..0x3F (12 bytes); vector 0x0.
+  Address range 0x00..0x33 is not remaining free-RAM count.
+Versus all-enabled 0x42177B: 43 more free ROM words on both targets;
+free RAM and reserved stack unchanged.
+Versus all-disabled 0x540CFB: 60 fewer free ROM words and 4 fewer free RAM
+bytes on both targets; 2 more reserved stack bytes. These whole-demo
+comparisons include routines/calls/pattern loading/pauses and linker effects,
+not isolated operation costs. Stack reservation is not measured runtime peak.
+One report supplied; separate per-orientation checksums were not provided.
+Six configurations are now user-validated; clear+invert and fill+invert
+remain pending. No compiler, simulator, programmer or hardware test by Codex.
+
+User-supplied clearCell + fillCell report (2026-10-21, verbatim):
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x7C0D8F
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x21D , Remain Free-Code : 0x1D3 , Remain Free-RAM : 16
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1A7 , Remain Free-Code : 0x249 , Remain Free-RAM : 16
+
+0 error(s), 0 warning(s)
+
+clearCell + invertTile report - user, 2026-10-21
+Reported configuration: OLED_USE_CLEARCELL=1, OLED_USE_FILLCELL=0,
+OLED_USE_INVERTTILE=1. IDE 1.04C1: 0 errors / 0 warnings.
+User hardware confirmation: works in all four orientations; the selected
+arrow clears and the other inverts after the pause; fill row stays blank.
+Supplied checksum 0x7105B7.
+  PMS150C: ROM size 0x3F0; last use 0x234; free code 0x1BC (444 words).
+  ICE: ROM size 0x3F0; last use 0x1BE; free code 0x232 (562 words).
+  Free RAM: 16 bytes on both targets.
+  Reserved stack: 0x34..0x3F (12 bytes); vector 0x0.
+  Address range 0x00..0x33 is not remaining free-RAM count.
+REPORT MATCH TO REVIEW: checksum and all memory figures exactly match the
+earlier clearCell-only report, despite the reported additional inversion
+behavior. Record the hardware confirmation as supplied; do not infer binary
+identity or successful exclusion verification from these duplicate figures.
+The cause of the match is unknown; no source/build inspection or rebuild
+was performed to resolve it. Configuration-specific memory attribution and
+feature-exclusion savings for clear+invert remain unverified. Numerically,
+the supplied figures leave 20 more free ROM words than all-enabled with
+unchanged free RAM/stack, but this is not a resolved clear+invert cost.
+One report supplied; separate per-orientation checksums were not provided.
+Stack reservation is not measured runtime peak. Fill+invert remains pending.
+No compiler, simulator, programmer or hardware test performed by Codex.
+
+User-supplied clearCell + invertTile report (2026-10-21, verbatim):
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x7105B7
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x234 , Remain Free-Code : 0x1BC , Remain Free-RAM : 16
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1BE , Remain Free-Code : 0x232 , Remain Free-RAM : 16
+
+0 error(s), 0 warning(s)
+
+fillCell + invertTile report - user, 2026-10-21
+Reported configuration: OLED_USE_CLEARCELL=0, OLED_USE_FILLCELL=1,
+OLED_USE_INVERTTILE=1. IDE 1.04C1: 0 errors / 0 warnings.
+User hardware confirmation: works in all four orientations; solid cell stays,
+only the selected arrow inverts after the pause, and top row stays blank.
+Supplied checksum 0x030103.
+  PMS150C: ROM size 0x3F0; last use 0x230; free code 0x1C0 (448 words).
+  ICE: ROM size 0x3F0; last use 0x1BA; free code 0x236 (566 words).
+  Free RAM: 16 bytes on both targets.
+  Reserved stack: 0x34..0x3F (12 bytes); vector 0x0.
+  Address range 0x00..0x33 is not remaining free-RAM count.
+REPORT MATCH TO REVIEW: checksum and all memory figures exactly match the
+earlier fillCell-only report, despite the reported additional inversion
+behavior. Hardware confirmation is recorded as supplied; configuration-
+specific memory attribution and exclusion savings remain unverified.
+No cause for the match is assumed; no source/build inspection or rebuild
+was performed to resolve it. Numerically the supplied figures leave 24 more
+free ROM words than all-enabled with unchanged RAM/stack, but this is not
+a resolved fill+invert cost. Stack reservation is not measured runtime peak.
+One report supplied; separate per-orientation checksums were not provided.
+All eight configurations now have user-reported warning-free build and
+hardware confirmations for all four orientation settings. The clear+invert
+and fill+invert reports still need reconciliation with their matching
+single-operation reports before configuration-specific savings are claimed.
+No compiler, simulator, programmer or hardware test performed by Codex.
+
+User-supplied fillCell + invertTile report (2026-10-21, verbatim):
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_ops_template\PMS150C_OLED_TILE_OPS.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x030103
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x230 , Remain Free-Code : 0x1C0 , Remain Free-RAM : 16
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x1BA , Remain Free-Code : 0x236 , Remain Free-RAM : 16
+
+0 error(s), 0 warning(s)

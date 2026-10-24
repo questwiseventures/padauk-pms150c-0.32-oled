@@ -1,0 +1,121 @@
+Percentage/cube application - 2026-10-23
+Created from v1.0.0 ZIP, local logo and application-only 100 -> 9 -> 0 updates.
+IDE/errors/warnings/checksum/ROM/RAM/stack: PENDING.
+All-four-orientation hardware and old-digit erasure: PENDING.
+No Mini-C compilation/programming/hardware test performed by Codex.
+Parent template figures are not this application's measured allocation.
+
+Loading-bar revision - 2026-10-23
+Replaces the untested numeric sequence: static full-size cube plus 3-cell
+bar growing 0..100 in steps of 5, then resets and repeats. APP_HOLD_CYCLES
+200000 per state; landscape right, portrait below cube. No numeric label.
+DRAWBITMAP=PERCENTBAR=1, other requests/KEEP_CURSOR=0; one CELL_DATA[8],
+IMAGE_TILE application byte and existing BAR_PERCENT progress state.
+Library/init/transfer timing unchanged; release and other projects untouched.
+Current IDE/errors/warnings/checksum/ROM/RAM/stack and hardware: PENDING.
+Prior numeric application's pending results do not apply to this revision.
+No Mini-C compilation/programming/hardware testing performed by Codex.
+
+Numeric percentage below bar revision - 2026-10-23
+Adds DRAWNUMBER, DRAWCHAR, CLEARCELL and all digit glyphs. Clears three-digit
+field and redraws BAR_PERCENT after each bar update. Percent in separate
+fixed cell. Landscape label rows 2/3 beside cube; portrait cube rows 0..3,
+bar row 4, label row 5. No overlap or whole-screen clearing in loop.
+Single existing CELL_DATA[8], public NUMBER_VALUE and original API scratch;
+no second buffer/counter. Combined ROM/RAM fit requires actual IDE build.
+Library/init/transfer timing/release unchanged. New build/errors/warnings/
+checksum/ROM/RAM/stack and all-four-orientation hardware: PENDING.
+No Mini-C compilation/programming/hardware testing performed by Codex.
+
+User failed build before compact numeric formatter - 2026-10-23
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\percentage_cube_application\PMS150C_OLED_PERCENT_CUBE.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\percentage_cube_application\PMS150C_OLED_PERCENT_CUBE.C
+Link ...
+Over code size, 3F0 -> 422
+Maximum ROM Size of PMS150C : 1008
+Use 1058 ROM, Exceed 50 ROM
+
+1 error(s), 0 warning(s)
+
+Current compact formatter disables drawNumber/clearCell, overwrites three
+right-aligned glyph cells using spaces for old digits and reuses bar scratch
+after bar draw. No library/init/timing/asset/release change or extra runtime
+variable. New IDE fit/ROM savings/errors/warnings/checksum/RAM/stack/hardware:
+PENDING. No Mini-C compilation or hardware testing performed by Codex.
+
+User failed rebuild - 2026-10-23
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\percentage_cube_application\PMS150C_OLED_PERCENT_CUBE.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\percentage_cube_application\PMS150C_OLED_PERCENT_CUBE.C
+Link ...
+Over code size, 3F0 -> 403
+Maximum ROM Size of PMS150C : 1008
+Use 1027 ROM, Exceed 19 ROM
+
+1 error(s), 0 warning(s)
+
+Previous code size 1058 -> 1027, reduced 31 words; still fails fit.
+Current revision changes runtime application layout branches to compile-time
+APP_PORTRAIT selection and removes redundant numeric BAR_FILL flag. All four
+rotations/layouts/sequence/logo/library/init/delay preserved. New IDE fit,
+savings/errors/warnings/checksum/RAM/stack/hardware: PENDING.
+No compilation or hardware testing performed by Codex.
+
+User failed rebuild - 2026-10-23
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\percentage_cube_application\PMS150C_OLED_PERCENT_CUBE.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\percentage_cube_application\PMS150C_OLED_PERCENT_CUBE.C
+Link ...
+Over code size, 3F0 -> 3F1
+Maximum ROM Size of PMS150C : 1008
+Use 1009 ROM, Exceed 1 ROM
+
+1 error(s), 0 warning(s)
+
+Measured 1027 -> 1009 words (18 fewer), still not successful fit.
+Current application removes percent-glyph setCursor by writing active
+CHAR_COLUMN/PAGE directly to the same valid position. No library/logo/init/
+timing/release change. New IDE fit/memory/hardware PENDING.
+No Mini-C compilation or hardware testing performed by Codex.
+
+Percent-symbol removal revision
+User requested original digit font retained and % removed. Removed symbol
+position/draw code and disabled FONT_25; three digit cells overwrite using
+original font. Cube/bar/cycle/delay/library/init/timing unchanged.
+New IDE/memory/checksum/hardware: PENDING. Host source/layout checks only;
+no Mini-C compilation or hardware testing performed by Codex.
+
+Numeric spacing revision
+Moved label down one cell row: landscape row 3, portrait row 6. One blank
+row between bar and number. No other code/layout/font/timing changes.
+New IDE/errors/warnings/memory/checksum/hardware: PENDING.
+No Mini-C compilation or hardware testing performed by Codex.
+
+Spaced numeric label, no percent symbol - user validation, 2026-10-23
+IDE 1.04C1. User confirms warning-free compilation and correct cube, loading
+bar and number, with a blank row between bar and number on hardware.
+Latest user confirmation does not specify orientation(s); no all-four-
+orientation claim or explicit reset-erasure/cycle-count check is inferred.
+One supplied report, not separate orientation checksums.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\percentage_cube_application\PMS150C_OLED_PERCENT_CUBE.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\percentage_cube_application\PMS150C_OLED_PERCENT_CUBE.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x3B1A0E
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x3DD , Remain Free-Code : 0x13 , Remain Free-RAM : 4
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x38C , Remain Free-Code : 0x64 , Remain Free-RAM : 4
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 19 / ICE 100 words; free RAM 4 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Successful fit supersedes
+failed revisions 1058, 1027 and 1009 words. Last code PMS150C 989 of 1008;
+no isolated per-edit saving claimed. Earlier pending entries describe their
+revision times. No compilation or hardware testing performed by Codex;
+documentation-only update, code/config/release unchanged.

@@ -1,0 +1,5 @@
+# Application template
+
+Open PMS150C_OLED_APP.PRJ in Padauk IDE 1.04C1. Default is the accepted static 37% example, with drawNumber and drawChar only, APP_ROTATION=0, no demo-only controls.
+
+Follow the [release quick start](../README.md) and [configuration guide](../docs/CONFIGURATION.md). Edit the marked application section in PMS150C_OLED_APP.C. Preserve clock/pins, init and timing; include oled_library.h once. All MCU project/source/configuration files here are byte-identical to the accepted template. Default user reference: checksum 0x0106DC, free ROM PMS150C 332 / ICE 450 words, free RAM 14 bytes, reserved stack 12 bytes, 0 errors / 0 warnings and hardware-confirmed all four rotations. The user subsequently confirmed the extracted packaged template builds without warnings and displays 37% correctly in all four orientations, with matching reference ROM/RAM; see the [release-copy report](../validation/RELEASE_BUILD_RESULTS.txt). See [raw report](../validation/APPLICATION_BUILD_RESULTS.txt).

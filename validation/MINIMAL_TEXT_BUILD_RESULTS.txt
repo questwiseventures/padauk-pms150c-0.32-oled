@@ -1,0 +1,38 @@
+Final-library minimal-text demo - 2026-10-22
+IDE 1.04C1 build: USER VALIDATED, 0 errors / 0 warnings, 2026-10-22.
+Hardware: USER CONFIRMED, 37% text and bar correct in all four orientations.
+No Mini-C compilation, simulator or hardware testing performed by Codex.
+Host source checks only: library .C/PRE/extern byte equality with parent;
+board setup through ClearScreen unchanged; no demo buffer/counter; sequential
+number, percent glyph and bar calls. These do not establish MCU fit or behavior.
+
+User build and hardware report - 2026-10-22
+Static minimal-text configuration: drawChar, drawNumber and drawPercentBar
+requested; other public requests and OLED_KEEP_CURSOR=0. Digits and % font.
+Fixed 37% text at (0,0), three-cell 37% bar at (0,2).
+User confirms warning-free compilation and correct text/bar in all four
+orientations on hardware. One supplied report; separate orientation
+checksums were not supplied. No dynamic-update test is claimed.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_minimal_text\PMS150C_OLED_MINIMAL_TEXT.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\final_library_minimal_text\PMS150C_OLED_MINIMAL_TEXT.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x031F48
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x324 , Remain Free-Code : 0xCC , Remain Free-RAM : 2
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x2AE , Remain Free-Code : 0x142 , Remain Free-RAM : 2
+
+0 error(s), 0 warning(s)
+
+Free ROM: PMS150C 204 words, ICE 322 words. Free RAM: 2 bytes.
+Reserved stack: 12 bytes (0x34..0x3F), not measured peak usage.
+Compared with final_library_experiment percentage-only static (0x141D61;
+free ROM 422 / 540 words, free RAM 8, reserved stack 12), this complete
+text demo costs 218 ROM words on each target and 6 RAM bytes; stack
+reservation is unchanged. This includes API, font and application changes,
+not isolated per-function costs. No new compilation or hardware testing
+was performed by Codex.

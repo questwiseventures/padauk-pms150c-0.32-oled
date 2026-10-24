@@ -1,0 +1,34 @@
+OLED application template - 2026-10-23
+Prepared static 37% using drawNumber and drawChar; APP_ROTATION=0.
+IDE 1.04C1 build: USER VALIDATED, 0 errors / 0 warnings, 2026-10-23.
+Hardware: USER CONFIRMED, correct 37% in all four orientations, 2026-10-23.
+Parent header-separated text reference 0x0106DC: free ROM PMS150C 332 /
+ICE 450 words, RAM 14 bytes, reserved stack 12 bytes. Parent reference only,
+not results for this new project. No Mini-C compilation or hardware testing
+performed by Codex. Host source checks do not establish compiler equivalence.
+
+Application template 37% text - user validation, 2026-10-23
+Prepared DRAWNUMBER=DRAWCHAR=1, other requests/KEEP_CURSOR=0.
+User confirms warning-free compilation and correct 37% in all four orientations
+on hardware. One supplied report; separate orientation checksums not supplied.
+
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\oled_application_template\PMS150C_OLED_APP.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\oled_application_template\PMS150C_OLED_APP.C
+Link ...
+memory 0x34 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x33 are free
+Check Sum is 0x0106DC
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x2A4 , Remain Free-Code : 0x14C , Remain Free-RAM : 14
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x22E , Remain Free-Code : 0x1C2 , Remain Free-RAM : 14
+
+0 error(s), 0 warning(s)
+
+Free ROM PMS150C 332 / ICE 450 words; free RAM 14 bytes; reserved stack
+12 bytes (0x34..0x3F), not measured peak usage. Figures and checksum match
+the validated header-separated text reference: no reported ROM/RAM overhead
+or saving. No binary identity claim. Other configurations or dynamic updates
+not validated by this report. No compilation or hardware testing performed
+by Codex; documentation-only update.

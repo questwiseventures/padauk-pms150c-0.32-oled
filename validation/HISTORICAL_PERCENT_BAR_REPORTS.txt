@@ -1,0 +1,86 @@
+Optional percentage bar - 2026-10-20
+Percentage enabled, timed: user-supplied IDE 1.04C1 build, 0 errors / 0 warnings.
+User hardware confirmation: percentage bar cycles correctly through 0, 13,
+37, 82 and 100% in all four orientations. Checksum 0x711F79.
+PMS150C: last use 0x29B; free code 0x155 (341 ROM words).
+ICE: last use 0x225; free code 0x1CB (459 ROM words).
+Free RAM: 1 byte in both targets. Reserved stack: 0x32..0x3F (14 bytes),
+not a measured runtime peak. Address range 0x00..0x31 is not free RAM count.
+One timed-mode report supplied; separate rotation checksums not provided.
+Compared with parent timed 0x5114BF: 65 fewer ROM words and 4 fewer RAM
+bytes free on both targets; 2 additional bytes reserved for stack. This
+includes changed demo code/call structure, not just percentage API costs.
+Percentage enabled, static: user-supplied IDE 1.04C1 build, 0 errors / 0 warnings.
+User hardware confirmation: top bar stays half-full while percentage bar
+stays at 37% in all four orientations. Checksum 0x441566.
+PMS150C: last use 0x276; free code 0x17A (378 ROM words).
+ICE: last use 0x200; free code 0x1F0 (496 ROM words).
+Free RAM: 4 bytes in both targets. Reserved stack: 0x32..0x3F (14 bytes),
+not a measured runtime peak. Vector 0x0; address range 0x00..0x31.
+Direct same-project savings from disabling timed cycling: 37 ROM words and
+3 RAM bytes on both targets. Reserved stack unchanged. Savings include demo
+cycling and delay scratch, not solely counter storage.
+One report per mode supplied; separate rotation checksums not provided.
+User-reported percentage-disabled static validation, 2026-10-20:
+IDE 1.04C1 build has 0 errors and 0 warnings; both bars stay half-full
+in all four orientations on the user's hardware. Checksum 0x441566.
+PMS150C: last use 0x276; free ROM 0x17A (378 words).
+ICE: last use 0x200; free ROM 0x1F0 (496 words).
+Free RAM: 4 bytes on both targets; reserved stack 0x32..0x3F (14 bytes).
+The supplied checksum, code usage, free RAM and stack exactly match the
+previous percentage-enabled static report. Reported differences are zero;
+these reports do not demonstrate ROM/RAM savings from feature exclusion.
+The cause of the identical build figures has not been established. Keep the
+user's hardware observation recorded separately from exclusion verification.
+The local feature_config.h was observed set to OLED_USE_PERCENTBAR => 0;
+when recording this report; it was not changed by Codex.
+Percentage-disabled timed build and hardware validation remain pending.
+Four host mathematical/source test groups passed; not Mini-C execution.
+No Padauk compiler, simulator, programmer or hardware test run by Codex.
+Parent measurements in README are references only. Direct percentage
+feature-switch savings remain unverified because the static reports match.
+
+User-supplied percentage-enabled timed report (2026-10-20, verbatim):
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_level_bar_percent\PMS150C_OLED_BAR_PERCENT.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_level_bar_percent\PMS150C_OLED_BAR_PERCENT.C
+Link ...
+memory 0x32 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x31 are free
+Check Sum is 0x711F79
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x29B , Remain Free-Code : 0x155 , Remain Free-RAM : 1
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x225 , Remain Free-Code : 0x1CB , Remain Free-RAM : 1
+
+0 error(s), 0 warning(s)
+
+User-supplied percentage-enabled static report (2026-10-20, verbatim):
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_level_bar_percent\PMS150C_OLED_BAR_PERCENT.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_level_bar_percent\PMS150C_OLED_BAR_PERCENT.C
+Link ...
+memory 0x32 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x31 are free
+Check Sum is 0x441566
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x276 , Remain Free-Code : 0x17A , Remain Free-RAM : 4
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x200 , Remain Free-Code : 0x1F0 , Remain Free-RAM : 4
+
+0 error(s), 0 warning(s)
+
+User-supplied percentage-disabled static report (2026-10-20, verbatim):
+Compile ...
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_level_bar_percent\PMS150C_OLED_BAR_PERCENT.PRE
+C:\Dropbox\BBM\Padauk\Miniature_OLED_Library\tile_level_bar_percent\PMS150C_OLED_BAR_PERCENT.C
+Link ...
+memory 0x32 ~ 0x3F for stack, vector = 0x0
+memory 0x0 ~ 0x31 are free
+Check Sum is 0x441566
+PMS150C  : ROM Size : 0x3F0
+PMS150C  : Last use Code : 0x276 , Remain Free-Code : 0x17A , Remain Free-RAM : 4
+ICE     : ROM Size : 0x3F0
+ICE     : Last use Code : 0x200 , Remain Free-Code : 0x1F0 , Remain Free-RAM : 4
+
+0 error(s), 0 warning(s)

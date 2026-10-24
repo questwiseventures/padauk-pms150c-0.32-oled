@@ -1,0 +1,6 @@
+Minimal drawChar example - 2026-10-23
+DRAWCHAR only, FONT_30 only; single 0 at logical (0,0), then idle.
+IDE errors/warnings/checksum/ROM/RAM/stack: PENDING.
+Hardware confirmation/all four orientations: PENDING.
+Host source/preservation checks only; no Mini-C compilation or hardware testing
+performed by Codex. Prior drawNumber zero case is not this example's result.
