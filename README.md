@@ -1,5 +1,13 @@
 # Padauk PMS150C 0.32″ OLED Library
 
+The Padauk PMS150C is a tiny microcontroller: a small programmable chip that runs instructions to control an electronic device. Its limited program memory and RAM make it useful to keep display code small and enable only the features an application needs.
+
+A 0.32-inch OLED is a miniature screen that forms pictures and text from individual light-emitting pixels. The inch measurement describes its diagonal size. This project uses the working SSD1315-based display setup described in the documentation.
+
+This library gives the chip ready-made routines for drawing text, numbers, images, simple shapes and level bars. For example, an application can show a reading, a loading indicator or a small logo. It supports four screen orientations and builds graphics in one reusable eight-byte tile workspace, rather than keeping a copy of the whole screen in RAM. An 8×8 tile is simply a square of 64 pixels.
+
+Start with the included application template, choose the features and characters you need, and replace the example drawing commands with your own. The code is written for **Padauk Mini-C and IDE 1.04C1**; it is not standard C. Each configuration must fit the chip's memory, so the guide includes build figures and the hardware checks reported by the user.
+
 Examples-only package update prepared 2026-10-23 for **PMS150C, Padauk Mini-C and IDE 1.04C1**, using the user's working SSD1315 OLED setup. This is the frozen existing API, not standard C or a general framebuffer graphics library.
 
 ## Start an application
