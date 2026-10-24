@@ -2,7 +2,7 @@
 
 The Padauk PMS150C is a tiny microcontroller: a small programmable chip that runs instructions to control an electronic device. Its limited program memory and RAM make it useful to keep display code small and enable only the features an application needs.
 
-A 0.32-inch OLED is a miniature screen that forms pictures and text from individual light-emitting pixels. The inch measurement describes its diagonal size. This project uses the working SSD1315-based display setup described in the documentation.
+This library is made for the SSD1315 0.32-inch monochrome OLED.
 
 This library gives the chip ready-made routines for drawing text, numbers, images, simple shapes and level bars. For example, an application can show a reading, a loading indicator or a small logo. It supports four screen orientations and builds graphics in one reusable eight-byte tile workspace, rather than keeping a copy of the whole screen in RAM. An 8×8 tile is simply a square of 64 pixels.
 
