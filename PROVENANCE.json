@@ -1,0 +1,209 @@
+{
+  "version": "1.0.1",
+  "date": "2026-10-23",
+  "frozen_public_functions": [
+    "OLED_Init",
+    "setRotation",
+    "ClearScreen",
+    "setCursor",
+    "drawChar",
+    "drawString",
+    "drawNumber",
+    "drawBitmap",
+    "clearTile",
+    "drawLine",
+    "drawRectangle",
+    "fillRectangle",
+    "drawLevelBar",
+    "drawPercentBar",
+    "clearCell",
+    "fillCell",
+    "invertTile",
+    "drawFrame",
+    "drawImage"
+  ],
+  "copied_files": {
+    "application_template/PMS150C_OLED_APP.C": {
+      "source": "oled_application_template/PMS150C_OLED_APP.C",
+      "sha256": "66d1f4fa1e522b02eb06f1299ae94b3aaabbdedca073a620a467f83a4807c63b"
+    },
+    "application_template/PMS150C_OLED_APP.PRE": {
+      "source": "oled_application_template/PMS150C_OLED_APP.PRE",
+      "sha256": "acc012ed974a1771959698d2655ce82c5da8b8a33f4402cc660c56875ae46ea4"
+    },
+    "application_template/PMS150C_OLED_APP.PRJ": {
+      "source": "oled_application_template/PMS150C_OLED_APP.PRJ",
+      "sha256": "cc7a48af652f081ba2de51f42c93f39bebaef926e81bec5c9c35cb0100ca6d63"
+    },
+    "application_template/oled_library.h": {
+      "source": "oled_application_template/oled_library.h",
+      "sha256": "d6a3f603faa5217c3c13ba2e0b0ecf942bd4893b7501adc75292b61f07e5fd57"
+    },
+    "application_template/feature_config.h": {
+      "source": "oled_application_template/feature_config.h",
+      "sha256": "7ebe844da08526d96163653ed10e267cbcb652ae3593913aa94b9741ad9820b5"
+    },
+    "application_template/font_config.h": {
+      "source": "oled_application_template/font_config.h",
+      "sha256": "18c9bfd9fc152d9e06b1d242c676336d7d2e230f235a5261ba51a2ee95cc602c"
+    },
+    "application_template/app_config.h": {
+      "source": "oled_application_template/app_config.h",
+      "sha256": "685cb485b43034254ab8008d966d6fb1a3c20b0bb67474f51ad286a315b6d9d4"
+    },
+    "application_template/bitmap_image.h": {
+      "source": "oled_application_template/bitmap_image.h",
+      "sha256": "92c65080a4e5a058d66739b41b662a1ae67104ba8ad64c5464f1c9fe39a109fe"
+    },
+    "application_template/extern.h": {
+      "source": "oled_application_template/extern.h",
+      "sha256": "6bfa5df0a8536b8c0a61ee96f908443944a4a24b5aba2e7be1e69079cb064f64"
+    },
+    "validation/APPLICATION_BUILD_RESULTS.txt": {
+      "source": "oled_application_template/BUILD_RESULTS.txt",
+      "sha256": "7170694483e9bc52b73fe9c4367979341e9b5093b8c116cce9a9c7218a6b9879"
+    },
+    "validation/LIBRARY_BUILD_RESULTS.txt": {
+      "source": "final_library_experiment/BUILD_RESULTS.txt",
+      "sha256": "e1ae0d429bca42f60d0e99eeeab72c14233dafc102b1fc4667de132a97acfdf7"
+    },
+    "validation/MINIMAL_TEXT_BUILD_RESULTS.txt": {
+      "source": "final_library_minimal_text/BUILD_RESULTS.txt",
+      "sha256": "b15a70da4a6c7a72c4cb7253abb193a4071d7291bdad33bea73c04ca17e27d2d"
+    },
+    "validation/HISTORICAL_TILE_OPS_REPORTS.txt": {
+      "source": "tile_ops_template/BUILD_RESULTS.txt",
+      "sha256": "eed2f65e8e2cdf8b206277e84db41c2a278371bee5c3be990710edfee819f868"
+    },
+    "validation/HISTORICAL_PERCENT_BAR_REPORTS.txt": {
+      "source": "tile_level_bar_percent/BUILD_RESULTS.txt",
+      "sha256": "d9d2615ad88b89bb0bbe27a4b0ea43e31fac3a5f9d4de2abf199fd67b8b21a52"
+    },
+    "assets/pizza_32x32.png": {
+      "source": "final_library_experiment/assets/image_32x32.png",
+      "sha256": "60604a12f9c1c4e28490ce7f17bd857bd25cb481e4093994db62f69cc5f11ff3"
+    },
+    "assets/pizza.tiles.json": {
+      "source": "final_library_experiment/assets/image.tiles.json",
+      "sha256": "2b0466d201a72cda9b5efda54129efb7024912ce6277aa5e024ca54ac9f0e3ea"
+    },
+    "converter/png_to_minic.py": {
+      "source": "rotation_logo/tools/png_to_minic.py",
+      "sha256": "fe29192a59efdf7ca242ff734b58ec5d7b4d7779274ecaaa4bf5813920efba93"
+    },
+    "converter/requirements.txt": {
+      "source": "rotation_logo/tools/requirements.txt",
+      "sha256": "5c91563941b3b8ed067006f78deae99ede39183242c82a409a96cf79ff0f9088"
+    },
+    "assets/pizza_rotation_0_preview.png": {
+      "source": "final_library_experiment/assets/image_rotation_0_preview.png",
+      "sha256": "a4896e74c803284fdc15a48c3f326cb63db13ccdfef286d3454cc864a51420fc"
+    },
+    "assets/pizza_rotation_1_preview.png": {
+      "source": "final_library_experiment/assets/image_rotation_1_preview.png",
+      "sha256": "7e139102292f127b6193176ab95e375387c6cfe39930fa393ce6da76bbb99ab3"
+    },
+    "assets/pizza_rotation_2_preview.png": {
+      "source": "final_library_experiment/assets/image_rotation_2_preview.png",
+      "sha256": "c868222ee007c49614d238b5f82a2cef231d59ea392117e75c01d31ca5bfd534"
+    },
+    "assets/pizza_rotation_3_preview.png": {
+      "source": "final_library_experiment/assets/image_rotation_3_preview.png",
+      "sha256": "9ef583df43a6fdd71452db6b9964aa404742fd30df8c25cbe207a6311131e5d7"
+    },
+    "examples/cube_loading/PMS150C_OLED_PERCENT_CUBE.C": {
+      "source": "percentage_cube_application/PMS150C_OLED_PERCENT_CUBE.C",
+      "sha256": "7952b0d291336d878599a32588471cdf617acec1b14ec0e4452f1e4b4b4ed687"
+    },
+    "examples/cube_loading/PMS150C_OLED_PERCENT_CUBE.PRJ": {
+      "source": "percentage_cube_application/PMS150C_OLED_PERCENT_CUBE.PRJ",
+      "sha256": "2d3a6770f2509467c543f9170d56da02af80e8cc4e60541b0b0c4179431ff008"
+    },
+    "examples/cube_loading/PMS150C_OLED_PERCENT_CUBE.PRE": {
+      "source": "percentage_cube_application/PMS150C_OLED_PERCENT_CUBE.PRE",
+      "sha256": "acc012ed974a1771959698d2655ce82c5da8b8a33f4402cc660c56875ae46ea4"
+    },
+    "examples/cube_loading/app_config.h": {
+      "source": "percentage_cube_application/app_config.h",
+      "sha256": "3488574d4abdcb07462dbabc9533247ee56fcf9e34f50c52550bd445d21d7317"
+    },
+    "examples/cube_loading/feature_config.h": {
+      "source": "percentage_cube_application/feature_config.h",
+      "sha256": "8f8133507acb0e2eb32a085cd9e87a76de17ea7c94af0920024d337714a8453c"
+    },
+    "examples/cube_loading/font_config.h": {
+      "source": "percentage_cube_application/font_config.h",
+      "sha256": "c1e311701b19d7ce7a9c70d7d2d17d629e8a20cb938ea033ceab1cf8c5c6eea7"
+    },
+    "examples/cube_loading/oled_library.h": {
+      "source": "percentage_cube_application/oled_library.h",
+      "sha256": "d6a3f603faa5217c3c13ba2e0b0ecf942bd4893b7501adc75292b61f07e5fd57"
+    },
+    "examples/cube_loading/cube_logo.h": {
+      "source": "percentage_cube_application/cube_logo.h",
+      "sha256": "0ad0a5675c8e90682fbbb5f01c72960adf66ead85f3c83f92a02daa59d2fc9a0"
+    },
+    "examples/cube_loading/bitmap_image.h": {
+      "source": "percentage_cube_application/bitmap_image.h",
+      "sha256": "92c65080a4e5a058d66739b41b662a1ae67104ba8ad64c5464f1c9fe39a109fe"
+    },
+    "examples/cube_loading/extern.h": {
+      "source": "percentage_cube_application/extern.h",
+      "sha256": "6bfa5df0a8536b8c0a61ee96f908443944a4a24b5aba2e7be1e69079cb064f64"
+    },
+    "examples/cube_loading/BUILD_RESULTS.txt": {
+      "source": "percentage_cube_application/BUILD_RESULTS.txt",
+      "sha256": "b69289a6838726b9e85ecfcb09320450d058b7984bfcfe0205aeb86df30c6384"
+    },
+    "examples/minimal_character/app_config.h": {
+      "source": "derived release minimal character example",
+      "sha256": "685cb485b43034254ab8008d966d6fb1a3c20b0bb67474f51ad286a315b6d9d4"
+    },
+    "examples/minimal_character/extern.h": {
+      "source": "derived release minimal character example",
+      "sha256": "6bfa5df0a8536b8c0a61ee96f908443944a4a24b5aba2e7be1e69079cb064f64"
+    },
+    "examples/minimal_character/feature_config.h": {
+      "source": "derived release minimal character example",
+      "sha256": "4cad08f33edc717ef9fa49a04688ac3ec294e47755bff704df2719f601e5b353"
+    },
+    "examples/minimal_character/font_config.h": {
+      "source": "derived release minimal character example",
+      "sha256": "7243af020b8a7308e7f7fb7ff19d85a9c11a2a764fb130c090f3613b947ace12"
+    },
+    "examples/minimal_character/oled_library.h": {
+      "source": "derived release minimal character example",
+      "sha256": "d6a3f603faa5217c3c13ba2e0b0ecf942bd4893b7501adc75292b61f07e5fd57"
+    },
+    "examples/minimal_character/PMS150C_OLED_MINIMAL.C": {
+      "source": "derived release minimal character example",
+      "sha256": "57f24c9a76bfd1f6847951aa4a83885a3eb5122cfecbf633bbaa02fa16c8bc04"
+    },
+    "examples/minimal_character/PMS150C_OLED_MINIMAL.PRE": {
+      "source": "derived release minimal character example",
+      "sha256": "acc012ed974a1771959698d2655ce82c5da8b8a33f4402cc660c56875ae46ea4"
+    },
+    "examples/minimal_character/PMS150C_OLED_MINIMAL.PRJ": {
+      "source": "derived release minimal character example",
+      "sha256": "abfc037bf75ca6da67295669ddaf4320e80c1c8dfdd39c7c2ee9b4ebe1fa31cf"
+    }
+  },
+  "new_IDE_build": "user-reported extracted template build; not performed by Codex",
+  "hardware": "user-confirmed extracted default 37% in all four orientations",
+  "extracted_release_user_validation": {
+    "date": "2026-10-23",
+    "IDE": "1.04C1",
+    "errors": 0,
+    "warnings": 0,
+    "checksum": "0x0106DC",
+    "free_ROM_PMS150C_words": 332,
+    "free_ROM_ICE_words": 450,
+    "free_RAM_bytes": 14,
+    "reserved_stack_bytes": 12,
+    "hardware": "user confirms 37% all four orientations",
+    "reference_ROM_RAM": "user confirms match",
+    "Codex_MCU_tests": "not performed"
+  },
+  "parent_release": "Miniature_OLED_Library_v1.0.0.zip",
+  "changes": "added self-contained minimal-character and validated cube/loading application examples; no library/API change"
+}

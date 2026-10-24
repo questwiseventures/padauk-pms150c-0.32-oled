@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-23",
+  "working_files_verified_unchanged": 1254,
+  "all_existing_projects_and_timing_preserved": true,
+  "MCU_files": "exact copies of accepted template",
+  "host_tests": "6 portable groups passed",
+  "release_copy_IDE_hardware": "user validated 2026-10-23; default text, all four orientations",
+  "API_count": 19,
+  "working_projects": "unchanged",
+  "archive_integrity": "Verified during archive creation; see adjacent ZIP SHA256",
+  "extracted_release_user_validation": {
+    "date": "2026-10-23",
+    "IDE": "1.04C1",
+    "errors": 0,
+    "warnings": 0,
+    "checksum": "0x0106DC",
+    "free_ROM_PMS150C_words": 332,
+    "free_ROM_ICE_words": 450,
+    "free_RAM_bytes": 14,
+    "reserved_stack_bytes": 12,
+    "hardware": "user confirms 37% all four orientations",
+    "reference_ROM_RAM": "user confirms match",
+    "Codex_MCU_tests": "not performed"
+  },
+  "version": "1.0.1",
+  "examples_update": {
+    "date": "2026-10-23",
+    "minimal_IDE_hardware": "pending",
+    "cube_source": "exact copy of accepted application; packaged copy not retested",
+    "original_files_unchanged": 1321
+  },
+  "minimal_example": "source/model checks only; IDE/memory/hardware pending"
+}

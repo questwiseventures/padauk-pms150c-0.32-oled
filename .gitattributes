@@ -1,0 +1,15 @@
+# Preserve accepted Mini-C/project bytes, including CRLF, during Git checkout.
+*.C -text
+*.c -text
+*.h -text
+*.H -text
+*.PRE -text
+*.pre -text
+*.PRJ -text
+*.prj -text
+
+# Portable publication documentation and host tools.
+*.md text eol=lf
+*.py text eol=lf
+*.png binary
+*.zip binary
