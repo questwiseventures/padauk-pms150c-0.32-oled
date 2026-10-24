@@ -3,7 +3,7 @@
   "source_release": "releases/Miniature_OLED_Library_v1.0.1.zip",
   "source_zip_sha256": "85ff61fbb07fd5d73bc25721870aaa593926973123951552f64b6a8a1ec2a5da",
   "repository_suggestion": "padauk-pms150c-0.32-oled",
-  "publication": "not uploaded; no git initialization/remote/tag created",
+  "publication": "Local preparation only; live GitHub status is not tracked. No upload performed by this update.",
   "license": "not selected",
   "original_package_files_verified_unchanged": [
     "application_template/app_config.h",
@@ -71,5 +71,14 @@
   "host_checks": "6 portable host groups passed; no new MCU compilation/hardware test",
   "original_working_files_preserved": 1388,
   "selected_repository_name": "padauk-pms150c-0.32-oled",
-  "readme_title": "Padauk PMS150C 0.32″ OLED Library"
+  "readme_title": "Padauk PMS150C 0.32″ OLED Library",
+  "suggested_topics": [
+    "padauk",
+    "pms150c",
+    "ssd1315",
+    "oled",
+    "mini-c",
+    "embedded",
+    "microcontroller"
+  ]
 }

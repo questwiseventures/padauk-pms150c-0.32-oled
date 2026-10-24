@@ -1,1 +1,1 @@
-Configurable OLED library for Padauk PMS150C Mini-C: four rotations, one 8-byte tile workspace, optional text, shapes, bars and bitmap support, with examples and recorded hardware validation.
+Padauk PMS150C Mini-C library for SSD1315 0.32-inch monochrome OLEDs, with four rotations, optional text, shapes, bars and bitmaps, using an eight-byte workspace.

@@ -2,7 +2,7 @@
 
 The Padauk PMS150C is a tiny microcontroller: a small programmable chip that runs instructions to control an electronic device. Its limited program memory and RAM make it useful to keep display code small and enable only the features an application needs.
 
-This library is made for the SSD1315 0.32-inch monochrome OLED.
+This library is made for the SSD1315 0.32-inch monochrome OLED. See the [0.32-inch OLED product page at Questwise Ventures](https://www.questwiseventures.com/products/worlds-smallest-0-32-oled-60x32-display-screen).
 
 This library gives the chip ready-made routines for drawing text, numbers, images, simple shapes and level bars. For example, an application can show a reading, a loading indicator or a small logo. It supports four screen orientations and builds graphics in one reusable eight-byte tile workspace, rather than keeping a copy of the whole screen in RAM. An 8×8 tile is simply a square of 64 pixels.
 
@@ -45,7 +45,7 @@ All three source configurations have user-reported 0 errors / 0 warnings and har
 
 v1.0.0 contains the existing 19 public functions listed in the API guide and current feature switches, using one eight-byte workspace and four rotations. Internal helpers, declaration order and shared scratch are not a stable independent interface. No new drawing function, MCU port, memory optimization or timing change is included. See [release notes](RELEASE_NOTES.md).
 
-This is a local package, not a published release or a claim of exhaustive testing. Keep accepted working projects and reference snapshots for comparison. No license terms have been invented; this package does not add or change source/asset permissions.
+Validation covers the configurations and hardware checks documented here; it does not imply exhaustive testing. Keep accepted working projects and reference snapshots for comparison. No license terms have been invented; this package does not add or change source/asset permissions.
 
 ## Optional host verification
 
@@ -67,4 +67,4 @@ Added [minimal-character and cube-loading examples](examples/README.md). No libr
 
 ## Repository preparation
 
-For repository settings and the not-yet-executed publication steps, see [GITHUB_SETUP.md](GITHUB_SETUP.md). Suggested description is in [REPOSITORY_DESCRIPTION.txt](REPOSITORY_DESCRIPTION.txt); the [draft release notes](.github/RELEASE_DRAFT.md) retain the distinction between user-validated configurations and pending minimal-example validation. No upload or repository creation has been performed.
+For repository settings and publication instructions, see [GITHUB_SETUP.md](GITHUB_SETUP.md). Suggested description is in [REPOSITORY_DESCRIPTION.txt](REPOSITORY_DESCRIPTION.txt); the [draft release notes](.github/RELEASE_DRAFT.md) retain the distinction between user-validated configurations and pending minimal-example validation.
